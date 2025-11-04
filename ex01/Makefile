@@ -6,11 +6,12 @@
 #    By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/10 16:46:47 by sizgi             #+#    #+#              #
-#    Updated: 2025/10/29 18:40:24 by sizgi            ###   ########.fr        #
+#    Updated: 2025/11/03 18:14:54 by sizgi            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = phonebook.cpp main.cpp
+SRC = phonebook.cpp phonebook_add.cpp phonebook_search.cpp phonebook_exit.cpp main.cpp \
+ contact.cpp
 
 OBJ_DIR = obj
 
@@ -20,8 +21,8 @@ DEPS = $(OBJ:.o=.d)
 
 NAME = phonebook
 
-CPPFLAGS = -Wall -Werror -Wextra -std=c++98 -g
-CXX = g++
+CPPFLAGS = -Wall -Werror -Wextra -std=c++98 -g -fsanitize=undefined -pedantic -Wno-newline-eof
+CXX = c++
 
 RM = rm -rf
 

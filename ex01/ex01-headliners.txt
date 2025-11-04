@@ -48,3 +48,13 @@
 	Once a command has been correctly executed, the program waits for another one. It
 	stops when the user inputs EXIT.
 	Give a relevant name to your executable.*/
+
+
+
+prompt_check = phonebook_start
+
+command = user_option
+->try_again_func
+->option_select
+->option_check
+->prompt_check

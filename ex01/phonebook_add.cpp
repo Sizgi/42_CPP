@@ -6,31 +6,34 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 18:15:07 by sizgi             #+#    #+#             */
-/*   Updated: 2025/10/29 18:35:24 by sizgi            ###   ########.fr       */
+/*   Updated: 2025/11/04 16:12:26 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "phonebook.hpp"
 
-void PhoneBook::info_writer(std::string info, int i, int contact_number)
+void PhoneBook::info_writer(std::string info, int i)
 {
 	
 	switch (i)
 	{
 	case 0:
-		Contacts[contact_number].first_name = info;
+		{
+			Contacts[contact_number].set_info(i, info);
+			Contacts[contact_number].contact_index = contact_number + '1';
+		}
 		break;
 	case 1:
-		Contacts[contact_number].last_name = info;
+			Contacts[contact_number].set_info(i, info);
 		break;
 	case 2:
-		Contacts[contact_number].nick_name = info;
+			Contacts[contact_number].set_info(i, info);
 		break;
 	case 3:
-		Contacts[contact_number].phone_number = info;
+			Contacts[contact_number].set_info(i, info);
 		break;
 	case 4:
-		Contacts[contact_number].darkest_secret = info;
+			Contacts[contact_number].set_info(i, info);
 		break;
 	default:
 		break;
@@ -40,26 +43,23 @@ void PhoneBook::info_writer(std::string info, int i, int contact_number)
 void PhoneBook::set_contact_infos()
 {
 	int i;
-	bool check = false;
 	
-	std::wcout << "you have chosen ADD option." << std::endl;
-	std::wcout << "Empty fields are not allowed." << std::endl;
+	std::cout << "you have chosen ADD option." << std::endl;
+	std::cout << "Empty fields are not allowed." << std::endl;
 	for(i = 0; i < 5; i++)
 	{
-		if(check == true)
-			--i;
 		promt_func(i);
 		std::getline(std::cin, info);
+		if(std::cin.eof() || std::cin.fail())
+			exit(1);
 		if(info_check(info, i))
 		{
-			check = true;
+			--i;
 			continue;
 		}
-		else
-			check = false;
-		info_writer(info, i, contact_number);
+		info_writer(info, i);
 	}
-	prompt_check(command, 1);
+	phonebook_start(1);
 }
 
 void PhoneBook::promt_func(int i)
@@ -91,19 +91,19 @@ bool PhoneBook::info_check(std::string info, int info_code)
 	int i = 0;
 	if(info.empty())
 	{
-		fail_prompts(0);
+		failed_prompts(0);
 		return true;
 	}
 	while(info[i])
 	{
 		if(info_code < 2 && (std::isdigit(info[i]) || std::isspace(info[i])))
 		{
-			fail_prompts(1);
+			failed_prompts(1);
 			return true;
 		}
 		if(info_code == 3 && !std::isdigit(info[i]))
 		{
-			fail_prompts(2);
+			failed_prompts(2);
 			return true;
 		}
 		i++;
@@ -111,7 +111,7 @@ bool PhoneBook::info_check(std::string info, int info_code)
 	return false;
 }
 
-void PhoneBook::fail_prompts(int code)
+void PhoneBook::failed_prompts(int code)
 {
 	switch (code)
 	{
@@ -136,13 +136,12 @@ void PhoneBook::fail_prompts(int code)
 }
 
 void PhoneBook::add_function()
-{
-	bool full = false;
+{	
 	contact_number++;
-	if(overload_switch == 0)
+	if(!full)
 		saved_contact_number = contact_number;
 	if(contact_number == 7)
-		overload_switch = 
+		full = true;
 	contact_number = contact_number % 8;
 	std::cout << contact_number << std::endl;
 	set_contact_infos();

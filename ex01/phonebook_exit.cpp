@@ -6,13 +6,13 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 18:17:22 by sizgi             #+#    #+#             */
-/*   Updated: 2025/10/29 18:17:58 by sizgi            ###   ########.fr       */
+/*   Updated: 2025/11/02 16:21:48 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "phonebook.hpp"
 
-void PhoneBook::exit_function()
+int PhoneBook::exit_function()
 {
-	;
+	return 0;
 }
