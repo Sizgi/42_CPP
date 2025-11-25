@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 16:03:29 by sizgi             #+#    #+#             */
-/*   Updated: 2025/11/22 16:29:16 by sizgi            ###   ########.fr       */
+/*   Updated: 2025/11/25 16:16:48 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,21 @@
 ////forbidden
 //std::string::replace
 
-#include <TheReplacer.hpp>
+#include "TheReplacer.hpp"
 
 int main(int argc, char **argv)
 {
 	if(argc != 4)
+	{
+		std::cout << "Incorrect argument count, need: 3" << std::endl;
 		return 1;
-
-	TheReplacer(std::string(argv[2]), std::string(argv[3]), std::string(argv[1]));
+	}
+	std::string s1 = std::string(argv[2]);
+	std::string s2 = std::string(argv[3]);
+	std::string given_fn = std::string(argv[1]);
+	
+	TheReplacer samet(s1, s2, given_fn);
+	if(samet.func1())
+		return(1);
 	return 0;
 }
