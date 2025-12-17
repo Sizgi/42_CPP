@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 14:31:34 by sizgi             #+#    #+#             */
-/*   Updated: 2025/12/16 15:21:58 by sizgi            ###   ########.fr       */
+/*   Updated: 2025/12/17 19:11:56 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 ScavTrap::ScavTrap(void) : ClapTrap()
 {
-	name = "Tuzak";
 	Attack_damage = 20;
 	Energy_points = 50;
 	Hit_points = 100;
@@ -50,6 +49,14 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &copy_from_this)
 	}
 	std::cout << "ScavTrap Copy assignment operator was here\n";
 	return *this;
+}
+
+void ScavTrap::attack(const std::string &target)
+{
+	Energy_points -= 1;
+	std::cout << name << " Blasts " << target <<", causing ";
+	std::cout << Attack_damage << " points of damage!" << "\n";
+	std::cout << name << " has " << Energy_points << " Energy points left.\n";
 }
 
 void ScavTrap::guardGate(void)

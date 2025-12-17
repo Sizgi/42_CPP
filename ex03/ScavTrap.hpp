@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 14:31:34 by sizgi             #+#    #+#             */
-/*   Updated: 2025/12/16 17:20:54 by sizgi            ###   ########.fr       */
+/*   Updated: 2025/12/17 19:13:15 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,9 @@ class ScavTrap : public virtual ClapTrap
 		ScavTrap(const ScavTrap &copy_from_this);
 		ScavTrap &operator = (const ScavTrap &copy_from_this);
 		void guardGate(void);
-	private:
-
+		void attack(const std::string &target);
+	protected:
+		// int			Energy_points;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 14:31:34 by sizgi             #+#    #+#             */
-/*   Updated: 2025/12/16 17:20:48 by sizgi            ###   ########.fr       */
+/*   Updated: 2025/12/17 19:13:08 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,9 @@ class FragTrap : public virtual ClapTrap
 		FragTrap(const FragTrap &copy_from_this);
 		FragTrap &operator = (const FragTrap &copy_from_this);
 		void highFive(int i);
-	private:
+	protected:
+		// int			Hit_points;
+		// int			Attack_damage;
 };
 
 #endif

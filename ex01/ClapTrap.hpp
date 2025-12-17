@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 14:31:34 by sizgi             #+#    #+#             */
-/*   Updated: 2025/12/16 15:21:49 by sizgi            ###   ########.fr       */
+/*   Updated: 2025/12/17 19:22:19 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class ClapTrap
 		ClapTrap(std::string given_name);
 		ClapTrap(const ClapTrap &copy_from_this);
 		ClapTrap &operator = (const ClapTrap &copy_from_this);
-		void	attack(const std::string& target);
+		void	attack(const std::string &target);
 		void	takeDamage(unsigned int amount);
 		void	beRepaired(unsigned int amount);
 		

@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 14:31:34 by sizgi             #+#    #+#             */
-/*   Updated: 2025/12/16 15:22:01 by sizgi            ###   ########.fr       */
+/*   Updated: 2025/12/17 19:23:52 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap
+class ScavTrap : public virtual ClapTrap
 {
 	public:
 		ScavTrap(void);
@@ -24,6 +24,7 @@ class ScavTrap : public ClapTrap
 		ScavTrap(const ScavTrap &copy_from_this);
 		ScavTrap &operator = (const ScavTrap &copy_from_this);
 		void guardGate(void);
+		void attack(const std::string &target);
 	private:
 
 };

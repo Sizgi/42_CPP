@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 14:31:34 by sizgi             #+#    #+#             */
-/*   Updated: 2025/12/16 17:29:47 by sizgi            ###   ########.fr       */
+/*   Updated: 2025/12/17 16:53:46 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 FragTrap::FragTrap(void) : ClapTrap()
 {
-	name = "Frog";
 	Attack_damage = 30;
 	Energy_points = 100;
 	Hit_points = 100;
