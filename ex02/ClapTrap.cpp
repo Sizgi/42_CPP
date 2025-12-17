@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 14:31:31 by sizgi             #+#    #+#             */
-/*   Updated: 2025/12/14 16:58:33 by sizgi            ###   ########.fr       */
+/*   Updated: 2025/12/16 15:23:18 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,73 +14,62 @@
 
 ClapTrap::ClapTrap(void)
 {
-	name = "ossuruk";
-	Hit_point = 10;
+	name = "Kilep";
+	Hit_points = 10;
 	Energy_points = 10;
-	Attack_points = 10;
-	std::cout << "constructer constructed an object with the name \"";
-	std::cout << name;
-	std::cout << "\"." << std::endl;
+	Attack_damage = 10;
+	std::cout << "ClapTrap constructor was here\n";
 }
 
 ClapTrap::~ClapTrap(void)
 {
-	std::cout << "destructor was here" << std::endl;
+	std::cout << "ClapTrap decstructer destructed " << name << ".\n";
 }
 
 ClapTrap::ClapTrap(std::string given_name)
 {
 	name = given_name;
-	Hit_point = 10;
+	Hit_points = 10;
 	Energy_points = 10;
-	Attack_points = 10;
-	std::cout << "constructer constructed an object with the name \"";
-	std::cout << name;
-	std::cout << "\"." << std::endl;
+	Attack_damage = 10;
+	std::cout << "ClapTrap parameterized constructor was here.\n";
 }
 
 ClapTrap::ClapTrap(const ClapTrap &copy_from_this)
 {
 	*this = copy_from_this;
+	std::cout << "ClapTrap copy constructor was here.\n";
 }
 ClapTrap &ClapTrap::operator=(const ClapTrap &copy_from_this)
 {
 	if(this != &copy_from_this)
 	{
 		this->name = copy_from_this.name;
-		this->Attack_points = copy_from_this.Attack_points;
-		this->Hit_point = copy_from_this.Hit_point;
+		this->Attack_damage = copy_from_this.Attack_damage;
+		this->Hit_points = copy_from_this.Hit_points;
 		this->Energy_points = copy_from_this.Energy_points;
 	}
+	std::cout << "ClapTrap Copy assignment operator was here\n";
 	return *this;
 }
 void ClapTrap::attack(const std::string& target)
 {
-	std::cout << name;
-	std::cout << " attacks ";
-	std::cout << target;
-	std::cout << ", causing ";
-	std::cout << Attack_points;
-	std::cout << " points of damage!" << "\n";
-	--Energy_points;
+	Energy_points -= 1;
+	std::cout << name << " attacks " << target <<", causing ";
+	std::cout << Attack_damage << " points of damage!" << "\n";
+	std::cout << name << " has " << Energy_points << " Energy points left.\n";
 }
 void ClapTrap::takeDamage(unsigned int amount)
 {
-	std::cout << name;
-	std::cout << " got hit and lost ";
-	std::cout << amount;
-	std::cout << " points of HP!!!! oh godd it hurts.." << "\n";
-	Hit_point -= amount;
+	Hit_points -= amount;
+	std::cout << name << " took " << amount << " damage.\n";
+	std::cout << name << " has " << Hit_points << " HP left.\n";
 }
 void ClapTrap::beRepaired(unsigned int amount)
 {
-	std::cout << name;
-	std::cout << " repaired itself, it regained ";
-	std::cout << amount;
-	std::cout << " points of HP!" << "\n";
-	--Energy_points;
-	Hit_point -= amount;
-	if(Hit_point > 10)
-		Hit_point = 10;
-	std::cout << Energy_points<< "\n";
+	Hit_points += amount;
+	std::cout << name << " repaired itself "<< amount << " HP.\n";
+	Energy_points -= 1;
+	std::cout << name << " has now " << Hit_points << " HP ";
+	std::cout << "and " << Energy_points << " Energy points.\n";
 }

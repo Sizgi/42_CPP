@@ -6,19 +6,22 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 14:31:28 by sizgi             #+#    #+#             */
-/*   Updated: 2025/12/14 16:58:53 by sizgi            ###   ########.fr       */
+/*   Updated: 2025/12/16 15:57:58 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+#include "FragTrap.hpp"
 
 int main (void)
-{
-	ClapTrap tarkan("samet");
-	tarkan.attack("Kostok");
-	tarkan.takeDamage(10);
-	tarkan.beRepaired(10);
-	ClapTrap sarah(tarkan);
-	sarah.beRepaired(10);
+{	
+	FragTrap samet("Samet");
+	FragTrap sarah(samet);
+	FragTrap thor("Thor");
+	FragTrap loki("Loki");
+	thor.attack("loki");
+	thor = loki;
+	thor.attack("loki");
+	thor.highFive(0);
 	return 0;
 }
