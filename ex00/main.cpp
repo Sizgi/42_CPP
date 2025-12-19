@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 20:32:31 by sizgi             #+#    #+#             */
-/*   Updated: 2025/12/18 19:17:42 by sizgi            ###   ########.fr       */
+/*   Updated: 2025/12/19 16:31:09 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int main()
 	delete meta;
 	delete j;
 	delete i;
-
+	std::cout << "\n\n\n";
 	const WrongAnimal *wong = new WrongAnimal();
 	const WrongAnimal *wang = new WrongCat();
 	std::cout << wong->getType() << std::endl;

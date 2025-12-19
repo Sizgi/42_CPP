@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 18:33:48 by sizgi             #+#    #+#             */
-/*   Updated: 2025/12/18 19:20:45 by sizgi            ###   ########.fr       */
+/*   Updated: 2025/12/19 16:44:59 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,19 @@
 WrongCat::WrongCat() : WrongAnimal()
 {
 	type = "WrongCat";
-	std::cout << "WrongCat default constructer constructed a WrongCat.\n";
+	std::cout << "\033[38;5;214mWrongCat\033[0m default constructer constructed a WrongCat.\n";
 }
+// std::cout << "\033[1;31mWrongAnimal\033[0m copy constructer constructed a \033[1;31mWrongAnimal\033[0m.\n"
 
 WrongCat::~WrongCat()
 {
-	std::cout << "WrongCat destructer destructed a WrongCat.\n";
+	std::cout << "\033[38;5;214mWrongCat\033[0m destructer destructed a WrongCat.\n";
 }
 
 WrongCat::WrongCat(const WrongCat &copy_from_this) : WrongAnimal(copy_from_this)
 {
 	*this = copy_from_this;
-	std::cout << "WrongCat copy constructer constructed a WrongCat.\n";
+	std::cout << "\033[38;5;214mWrongCat\033[0m copy constructer constructed a WrongCat.\n";
 }
 
 WrongCat &WrongCat::operator=(const WrongCat &copy_from_this)
@@ -35,13 +36,13 @@ WrongCat &WrongCat::operator=(const WrongCat &copy_from_this)
 	{
 		this->type = copy_from_this.type;
 	}
-	std::cout << "WrongCat Copy assignment operator was here\n";
+	std::cout << "\033[38;5;214mWrongCat\033[0m Copy assignment operator was here\n";
 	return *this;
 }
 
 void WrongCat::makeSound(void) const
 {
-	std::cout << "WrongCat sound\n";
+	std::cout << "\033[38;5;214mWrongCat\033[0m sound\n";
 }
 
 void WrongCat::setType(std::string given_type)

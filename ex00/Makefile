@@ -6,7 +6,7 @@
 #    By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/10 16:46:47 by sizgi             #+#    #+#              #
-#    Updated: 2025/12/18 19:16:42 by sizgi            ###   ########.fr        #
+#    Updated: 2025/12/19 16:27:11 by sizgi            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,8 @@ $(OBJ_DIR)/%.o: %.cpp
 
 -include $(DEPS)
 
+run: all
+	./$(NAME)
 clean:
 		$(RM) $(OBJ) $(DEPS) $(OBJ_DIR)
 fclean: clean
@@ -42,4 +44,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean
+.PHONY: all clean fclean run

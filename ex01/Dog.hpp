@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/18 18:33:52 by sizgi             #+#    #+#             */
-/*   Updated: 2025/12/19 16:43:28 by sizgi            ###   ########.fr       */
+/*   Created: 2025/12/17 20:59:05 by sizgi             #+#    #+#             */
+/*   Updated: 2025/12/19 18:38:04 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __WRONGANIMAL_HPP__
-#define __WRONGANIMAL_HPP__
+#ifndef __DOG_HPP__
+#define __DOG_HPP__
 
-#include <iostream>
+#include "Animal.hpp"
+#include "Brain.hpp"
 
-class WrongAnimal
+class Dog : public Animal
 {
 	public:
-		WrongAnimal();
-		virtual ~WrongAnimal();
-		WrongAnimal(const WrongAnimal &copy_from_this);
-		WrongAnimal &operator=(const WrongAnimal &copy_from_this);
+		Dog(void);
+		~Dog();
+		Dog(const Dog &copy_from_this);
+		Dog &operator=(const Dog &copy_from_this);
+		// std::string getType(void) const;
+		// void setType(std::string given_type);
 		void makeSound(void) const;
-		void setType(std::string given_type);
-		std::string getType(void) const;
-	protected:
-		std::string type;
+	private:
+		Brain *dogBrain;
 };
-
 
 #endif

@@ -1,33 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/18 18:33:52 by sizgi             #+#    #+#             */
-/*   Updated: 2025/12/19 16:43:28 by sizgi            ###   ########.fr       */
+/*   Created: 2025/12/17 20:40:24 by sizgi             #+#    #+#             */
+/*   Updated: 2025/12/18 18:56:32 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __WRONGANIMAL_HPP__
-#define __WRONGANIMAL_HPP__
+#ifndef __ANIMAL_HPP__
+#define __ANIMAL_HPP__
 
 #include <iostream>
 
-class WrongAnimal
+// enum Type
+// {
+// 	CAT,
+// 	DOG,
+// 	DRAGON,
+// };
+
+class Animal
 {
 	public:
-		WrongAnimal();
-		virtual ~WrongAnimal();
-		WrongAnimal(const WrongAnimal &copy_from_this);
-		WrongAnimal &operator=(const WrongAnimal &copy_from_this);
-		void makeSound(void) const;
-		void setType(std::string given_type);
+		Animal(void);
+		virtual ~Animal();
+		Animal(const Animal &copy_from_this);
+		Animal &operator=(const Animal &copy_from_this);
 		std::string getType(void) const;
+		void setType(std::string given_type);
+		virtual void makeSound(void) const;
 	protected:
 		std::string type;
 };
-
 
 #endif

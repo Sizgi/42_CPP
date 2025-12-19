@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/18 18:33:52 by sizgi             #+#    #+#             */
-/*   Updated: 2025/12/19 16:43:28 by sizgi            ###   ########.fr       */
+/*   Created: 2025/12/19 17:17:01 by sizgi             #+#    #+#             */
+/*   Updated: 2025/12/19 18:34:42 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __WRONGANIMAL_HPP__
-#define __WRONGANIMAL_HPP__
+#include "Cat.hpp"
+#include "Dog.hpp"
 
-#include <iostream>
-
-class WrongAnimal
+int main()
 {
-	public:
-		WrongAnimal();
-		virtual ~WrongAnimal();
-		WrongAnimal(const WrongAnimal &copy_from_this);
-		WrongAnimal &operator=(const WrongAnimal &copy_from_this);
-		void makeSound(void) const;
-		void setType(std::string given_type);
-		std::string getType(void) const;
-	protected:
-		std::string type;
-};
+const Animal *j = new Dog();
+const Animal *i = new Cat();
+delete j;//should not create a leak
+delete i;
 
+return 0;
 
-#endif
+}

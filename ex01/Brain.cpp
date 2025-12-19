@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/18 18:33:52 by sizgi             #+#    #+#             */
-/*   Updated: 2025/12/19 16:43:28 by sizgi            ###   ########.fr       */
+/*   Created: 2025/12/19 16:55:23 by sizgi             #+#    #+#             */
+/*   Updated: 2025/12/19 19:04:33 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __WRONGANIMAL_HPP__
-#define __WRONGANIMAL_HPP__
+#include "Brain.hpp"
 
-#include <iostream>
-
-class WrongAnimal
+Brain::Brain(void)
 {
-	public:
-		WrongAnimal();
-		virtual ~WrongAnimal();
-		WrongAnimal(const WrongAnimal &copy_from_this);
-		WrongAnimal &operator=(const WrongAnimal &copy_from_this);
-		void makeSound(void) const;
-		void setType(std::string given_type);
-		std::string getType(void) const;
-	protected:
-		std::string type;
-};
+	std::cout << "Brain constructer constructed a brain\n";
+}
 
+Brain::~Brain()
+{
+	std::cout << "Brain destructer destructed a brain\n";
+}
 
-#endif
+Brain::Brain(const Brain &copy_from_this)
+{
+	std::cout << "Brain copy constructer constructed a brain\n";
+}
+
+Brain &Brain::operator=(const Brain &copy_from_this)
+{
+	std::cout << "Copy assignment operator was here\n"
+}
+
