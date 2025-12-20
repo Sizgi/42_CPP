@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 16:55:20 by sizgi             #+#    #+#             */
-/*   Updated: 2025/12/19 18:47:57 by sizgi            ###   ########.fr       */
+/*   Updated: 2025/12/20 19:39:31 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,19 @@ class Brain
 		~Brain();
 		Brain(const Brain &copy_from_this);
 		Brain &operator=(const Brain &copy_from_this);
-	private:
 		std::string ideas[100];
+	private:
 };
 
 #endif
+
+
+/*
+In your main function, create and fill an array of Animal objects. Half of it will
+be Dog objects and the other half will be Cat objects. At the end of your program
+execution, loop over this array and delete every Animal. You must delete directly dogs
+and cats as Animals. The appropriate destructors must be called in the expected order.
+Don’t forget to check for memory leaks.
+A copy of a Dog or a Cat mustn’t be shallow. Thus, you have to test that your copies
+are deep copies!
+*/

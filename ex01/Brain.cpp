@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 16:55:23 by sizgi             #+#    #+#             */
-/*   Updated: 2025/12/19 19:04:33 by sizgi            ###   ########.fr       */
+/*   Updated: 2025/12/20 20:50:24 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 Brain::Brain(void)
 {
+	for(int i = 0; i < 100; i++)
+		ideas[i] = "empty";
 	std::cout << "Brain constructer constructed a brain\n";
 }
 
@@ -24,11 +26,16 @@ Brain::~Brain()
 
 Brain::Brain(const Brain &copy_from_this)
 {
+	for(int i = 0; i < 100; i++)
+		this->ideas[i] = copy_from_this.ideas[i];
 	std::cout << "Brain copy constructer constructed a brain\n";
 }
 
 Brain &Brain::operator=(const Brain &copy_from_this)
 {
-	std::cout << "Copy assignment operator was here\n"
+	for(int i = 0; i < 100; i++)
+		this->ideas[i] = copy_from_this.ideas[i];
+	std::cout << "Copy assignment operator was here\n";
+	return *this;
 }
 

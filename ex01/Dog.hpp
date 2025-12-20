@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 20:59:05 by sizgi             #+#    #+#             */
-/*   Updated: 2025/12/19 18:38:04 by sizgi            ###   ########.fr       */
+/*   Updated: 2025/12/20 20:53:15 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ class Dog : public Animal
 		// std::string getType(void) const;
 		// void setType(std::string given_type);
 		void makeSound(void) const;
+		std::string getIdea(int index) const;
+		void setIdea(int index, std::string str_to_set);
 	private:
 		Brain *dogBrain;
 };

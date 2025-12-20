@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 20:40:24 by sizgi             #+#    #+#             */
-/*   Updated: 2025/12/18 18:56:32 by sizgi            ###   ########.fr       */
+/*   Updated: 2025/12/20 20:48:50 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define __ANIMAL_HPP__
 
 #include <iostream>
+#include <stdlib.h>
 
 // enum Type
 // {

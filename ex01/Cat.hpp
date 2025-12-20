@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 20:39:08 by sizgi             #+#    #+#             */
-/*   Updated: 2025/12/19 18:37:48 by sizgi            ###   ########.fr       */
+/*   Updated: 2025/12/20 19:33:25 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ class Cat : public Animal
 		~Cat();
 		Cat(const Cat &copy_from_this);
 		Cat &operator=(const Cat &copy_from_this);
-		// std::string getType(void) const;
-		// void setType(std::string given_type);
+		std::string getIdea(int index) const;
+		void setIdea(int index, std::string str_to_set);
 		void makeSound(void) const;
 	private:
 		Brain *catBrain;
