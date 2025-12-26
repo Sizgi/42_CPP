@@ -6,11 +6,11 @@
 #    By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/10 16:46:47 by sizgi             #+#    #+#              #
-#    Updated: 2025/12/20 20:28:30 by sizgi            ###   ########.fr        #
+#    Updated: 2025/12/23 19:00:39 by sizgi            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp main.cpp
+SRC = Animal.cpp Cat.cpp Dog.cpp Brain.cpp main.cpp
 
 OBJ_DIR = obj
 
@@ -18,9 +18,9 @@ OBJ = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 
 DEPS = $(OBJ:.o=.d)
 
-NAME = Animal_0
+NAME = Animal_2
 
-CPPFLAGS = -Wall -Werror -Wextra -std=c++98 -MMD -MP -fsanitize=undefined -pedantic -Wno-newline-eof
+CPPFLAGS = -Wall -Werror -Wextra -std=c++98 -MMD -MP #-fsanitize=undefined -pedantic -Wno-newline-eof
 CXX = c++
 
 RM = rm -rf

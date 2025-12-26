@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/17 20:39:08 by sizgi             #+#    #+#             */
-/*   Updated: 2025/12/23 19:20:28 by sizgi            ###   ########.fr       */
+/*   Created: 2025/12/17 20:59:05 by sizgi             #+#    #+#             */
+/*   Updated: 2025/12/26 14:46:52 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __CAT_HPP__
-#define __CAT_HPP__
+#ifndef __DOG_HPP__
+#define __DOG_HPP__
 
 #include "Animal.hpp"
 #include "Brain.hpp"
 
-class Cat : public Animal
+class Dog : public Animal
 {
 	public:
-		Cat(void);
-		~Cat();
-		Cat(const Cat &copy_from_this);
-		Cat &operator=(const Cat &copy_from_this);
+		Dog(void);
+		~Dog();
+		Dog(const Dog &copy_from_this);
+		Dog &operator=(const Dog &copy_from_this);
+		void makeSound(void) const;
 		std::string getIdea(int index) const;
 		void setIdea(int index, std::string str_to_set);
-		void makeSound(void) const;
 	private:
-		Brain *catBrain;
+		Brain *dogBrain;
 };
 
 #endif

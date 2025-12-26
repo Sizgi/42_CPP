@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 20:40:24 by sizgi             #+#    #+#             */
-/*   Updated: 2025/12/23 19:29:04 by sizgi            ###   ########.fr       */
+/*   Updated: 2025/12/23 18:54:58 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class Animal
 		Animal &operator=(const Animal &copy_from_this);
 		std::string getType(void) const;
 		void setType(std::string given_type);
-		virtual void makeSound(void) const;
+		virtual void makeSound(void) const = 0;
 	protected:
 		std::string type;
 };

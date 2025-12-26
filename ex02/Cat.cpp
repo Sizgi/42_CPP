@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 15:27:04 by sizgi             #+#    #+#             */
-/*   Updated: 2025/12/26 14:43:00 by sizgi            ###   ########.fr       */
+/*   Updated: 2025/12/26 14:45:09 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,6 @@ Cat &Cat::operator=(const Cat &copy_from_this)
 {
 	if(this != &copy_from_this)
 	{
-		// delete catBrain;
-		// this->catBrain = new Brain(*copy_from_this.catBrain);
 		*this->catBrain =  *copy_from_this.catBrain;
 		this->type =  copy_from_this.type;
 	}
@@ -48,6 +46,7 @@ void Cat::makeSound(void) const
 {
 	std::cout << "Miav\n";
 }
+
 std::string Cat::getIdea(int index) const
 {
 	if(index > 99 || index < 0)

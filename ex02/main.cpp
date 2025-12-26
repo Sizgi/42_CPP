@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 17:17:01 by sizgi             #+#    #+#             */
-/*   Updated: 2025/12/23 19:29:37 by sizgi            ###   ########.fr       */
+/*   Updated: 2025/12/26 14:49:56 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int main()
 {
 const Animal *j = new Dog();
 const Animal *i = new Cat();
+
 delete j;//should not create a leak
 delete i;
 
@@ -24,6 +25,7 @@ Cat *cat1 = new Cat();
 Cat *cat2 = new Cat();
 
 cat1->setIdea(10, "samet");
+
 std::cout << cat1->getIdea(10)+"\n";
 std::cout << cat2->getIdea(10)+"\n\n\n";
 

@@ -6,7 +6,7 @@
 #    By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/10 16:46:47 by sizgi             #+#    #+#              #
-#    Updated: 2025/12/20 20:50:35 by sizgi            ###   ########.fr        #
+#    Updated: 2025/12/23 18:57:16 by sizgi            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ DEPS = $(OBJ:.o=.d)
 
 NAME = Animal_1
 
-CPPFLAGS = -Wall -Werror -Wextra -std=c++98 -MMD -MP -fsanitize=undefined -pedantic -Wno-newline-eof
+CPPFLAGS = -Wall -Werror -Wextra -std=c++98 -MMD -MP #-fsanitize=undefined -pedantic -Wno-newline-eof
 CXX = c++
 
 RM = rm -rf

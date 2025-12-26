@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 20:32:31 by sizgi             #+#    #+#             */
-/*   Updated: 2025/12/19 16:31:09 by sizgi            ###   ########.fr       */
+/*   Updated: 2025/12/20 20:28:24 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,15 @@ int main()
 
 	delete wong;
 	delete wang;
+	
+	// const Animal *wing = new Cat();
+	// const Animal *wung = new Cat();
+	// const Animal *temp;
+	// temp = wing;
+	// wing = wung;
+	// delete wing;
+	// delete wung;
+	// delete temp;
+
 	return 0;
 }
