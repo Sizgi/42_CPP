@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 21:09:36 by sizgi             #+#    #+#             */
-/*   Updated: 2025/12/26 14:43:31 by sizgi            ###   ########.fr       */
+/*   Updated: 2025/12/26 17:16:28 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,10 @@ Animal &Animal::operator=(const Animal &copy_from_this)
 	return *this;
 }
 
-// void Animal::makeSound(void) const
-// {
-// 	std::cout << "ROAR!!\n";
-// }
+void Animal::makeSound(void) const
+{
+	std::cout << "ROAR!!\n";
+}
 
 std::string Animal::getType(void) const
 {

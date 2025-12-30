@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 15:27:04 by sizgi             #+#    #+#             */
-/*   Updated: 2025/12/26 14:43:00 by sizgi            ###   ########.fr       */
+/*   Updated: 2025/12/26 17:15:07 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ Cat &Cat::operator=(const Cat &copy_from_this)
 	{
 		// delete catBrain;
 		// this->catBrain = new Brain(*copy_from_this.catBrain);
-		*this->catBrain =  *copy_from_this.catBrain;
+		*this->catBrain = *copy_from_this.catBrain;
 		this->type =  copy_from_this.type;
 	}
 	std::cout << "Cat copy assignment operator copied a cat\n";

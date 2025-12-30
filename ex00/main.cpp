@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 20:32:31 by sizgi             #+#    #+#             */
-/*   Updated: 2025/12/20 20:28:24 by sizgi            ###   ########.fr       */
+/*   Updated: 2025/12/30 15:56:25 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int main()
 	i->makeSound(); //will output the cat sound!
 	j->makeSound();
 	meta->makeSound();
-	
+
 	delete meta;
 	delete j;
 	delete i;

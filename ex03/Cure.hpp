@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/17 20:39:08 by sizgi             #+#    #+#             */
-/*   Updated: 2025/12/26 17:02:14 by sizgi            ###   ########.fr       */
+/*   Created: 2025/12/26 15:55:28 by sizgi             #+#    #+#             */
+/*   Updated: 2025/12/27 18:35:41 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __CAT_HPP__
-#define __CAT_HPP__
+#ifndef CURE_HPP
+#define CURE_HPP
 
-#include "Animal.hpp"
+#include "AMateria.hpp"
 
-class Cat : public Animal
+class Cure : public AMateria
 {
 	public:
-		Cat(void);
-		~Cat();
-		Cat(const Cat &copy_from_this);
-		Cat &operator=(const Cat &copy_from_this);
-		// std::string getType(void) const;
-		// void setType(std::string given_type);
-		void makeSound(void) const;
-	private:
+		Cure(void);
+		~Cure();
+		Cure(std::string const &type);
+		const std::string &getType() const; //Returns the materia type
+		Cure(const Cure &copy_from_this);
+		Cure &operator = (const Cure &copy_from_this);
+		Cure *clone() const;
+		void use(ICharacter& target);
+		Cure clone();
+	protected:
 };
+
+
 
 #endif
