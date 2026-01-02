@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/26 14:52:01 by sizgi             #+#    #+#             */
-/*   Updated: 2025/12/30 19:10:21 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/01/02 20:01:57 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,14 @@ int main()
 	tmp = src->createMateria("cure");
 	me->equip(tmp);
 	ICharacter *bob = new Character("bob");
+	std::cout << "\n\n\n";
 	me->use(0, *bob);
 	me->use(1, *bob);
+	std::cout << "\n\n\n";
 	delete bob;
 	delete me;
 	delete src;
-}
+	
 
-return 0;
+	return 0;
+}

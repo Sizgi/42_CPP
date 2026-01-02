@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/26 15:42:24 by sizgi             #+#    #+#             */
-/*   Updated: 2025/12/30 20:01:33 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/01/02 19:35:06 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,12 @@
 
 #include "IMateriaSource.hpp"
 
-class MateriaSource
+class MateriaSource : public IMateriaSource
 {
 	public:
+		MateriaSource();
 		~MateriaSource();
-		void learnMateria(AMateria *);
+		void learnMateria(AMateria *mat);
 		AMateria* createMateria(std::string const & type);
 	private:
 		AMateria *l_materia[4];
