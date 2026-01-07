@@ -1,21 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/05 14:56:50 by sizgi             #+#    #+#             */
-/*   Updated: 2026/01/07 14:23:17 by sizgi            ###   ########.fr       */
+/*   Created: 2025/11/25 17:20:22 by sizgi             #+#    #+#             */
+/*   Updated: 2026/01/07 14:43:22 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef __HARL_HPP__
+#define __HARL_HPP__
 
-int main(void)
+#include <iostream>
+
+class Harl
 {
-	Zombie *test = newZombie("tester");
-	test->announce();
-	randomChump("tester2");
-	delete test;
-}
+	private:
+		void 	debug(void);
+		void	info( void );
+		void	warning( void );
+		void	error( void );
+	public:
+		void	complain(std::string level);
+};
+
+#endif

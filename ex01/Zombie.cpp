@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 12:55:37 by sizgi             #+#    #+#             */
-/*   Updated: 2025/11/10 17:05:51 by sizgi            ###   ########.fr       */
+/*   Updated: 2025/11/27 17:09:32 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 Zombie* newZombie(std::string name)
 {
 	Zombie *zombie =  new Zombie(name);
-	
 	return(zombie);
 }
 void Zombie::set_name(std::string zombie)

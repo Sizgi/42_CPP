@@ -6,11 +6,11 @@
 #    By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/10 16:46:47 by sizgi             #+#    #+#              #
-#    Updated: 2026/01/07 14:21:35 by sizgi            ###   ########.fr        #
+#    Updated: 2025/11/25 17:25:15 by sizgi            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = main.cpp Zombie.cpp
+SRC = main.cpp Harl.cpp
 
 OBJ_DIR = obj
 
@@ -18,7 +18,7 @@ OBJ = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 
 DEPS = $(OBJ:.o=.d)
 
-NAME = ex00
+NAME = Harl
 
 CPPFLAGS = -Wall -Werror -Wextra -std=c++98 -g -fsanitize=undefined -pedantic -Wno-newline-eof
 CXX = c++

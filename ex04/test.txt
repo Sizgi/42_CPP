@@ -16,14 +16,3 @@ Very long line with world repeated many times: world world world world world wor
 Single character line: a
 world
 THE END world Very long line with world repeated with world repeatedwith world repeatedwith world repeatedwith world repeatedwith world repeated
-
-
-
-
-
-
-
-
-
-
-

@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 16:03:29 by sizgi             #+#    #+#             */
-/*   Updated: 2025/11/25 16:16:48 by sizgi            ###   ########.fr       */
+/*   Updated: 2025/11/26 16:12:43 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int main(int argc, char **argv)
 		return 1;
 	}
 	std::string s1 = std::string(argv[2]);
+	// std::cout << 
 	std::string s2 = std::string(argv[3]);
 	std::string given_fn = std::string(argv[1]);
 	

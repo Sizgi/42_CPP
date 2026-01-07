@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 16:43:52 by sizgi             #+#    #+#             */
-/*   Updated: 2025/11/25 16:59:51 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/01/07 14:39:31 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,10 @@ void TheReplacer::error_function(int code)
 		std::cout << "Error, first string cant be empty" << std::endl;
 		break;
 	case 1:
-		std::cout << "Error accured while opening the given file" << std::endl;
+		std::cout << "Error occured while opening the given file" << std::endl;
 		break;
 	case 2:
-		std::cout << "error accured while opening the replace file" << std::endl;
+		std::cout << "Error occured while opening the replace file" << std::endl;
 		break;
 	default:
 		break;
@@ -108,16 +108,12 @@ size_t TheReplacer::multi_rep(std::string line, std::ofstream &out_f)
 int TheReplacer::func2(std::ifstream &in_f, std::ofstream &out_f)
 {
 	std::string line;
-	int deneme = 0;
 	
-	while(!in_f.eof())
+	while(getline(in_f, line))
 	{
-		if(deneme != 0)
-			out_f << std::endl;
-		deneme++;
-		getline(in_f, line);
+		if(!in_f.eof())
+			line += '\n';
 		multi_rep(line, out_f);
 	}
-	std::cout << deneme << std::endl;
 	return(0);
 }
