@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 16:33:58 by sizgi             #+#    #+#             */
-/*   Updated: 2025/11/10 17:23:58 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/01/19 16:18:57 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,18 @@
 
 Zombie *zombieHorde( int N, std::string name )
 {
-	int count;
+	if (N < 1 || N > 100)
+	{
+		std::cout << "number is too big or too small give something between 0-100" << std::endl;
+		return NULL;
+	}
 	Zombie *zombies = new Zombie[N];
-	
-	for(count = 0; count < N; count++)
+	if (zombies == NULL)
+    {
+        std::cerr << "Memory allocation failed" << std::endl;
+        return NULL;
+    }
+	for(int count = 0; count < N; count++)
 		zombies[count].set_name(name);
 	return(zombies);
 }

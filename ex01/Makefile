@@ -6,7 +6,7 @@
 #    By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/10 16:46:47 by sizgi             #+#    #+#              #
-#    Updated: 2025/11/11 15:55:34 by sizgi            ###   ########.fr        #
+#    Updated: 2026/01/19 16:03:35 by sizgi            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ DEPS = $(OBJ:.o=.d)
 
 NAME = horde
 
-CPPFLAGS = -Wall -Werror -Wextra -std=c++98 -g -fsanitize=undefined -pedantic -Wno-newline-eof
+CPPFLAGS = -Wall -Werror -Wextra -std=c++98 #-g -fsanitize=undefined -pedantic -Wno-newline-eof
 CXX = c++
 
 RM = rm -rf

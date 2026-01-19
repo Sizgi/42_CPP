@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 12:11:29 by sizgi             #+#    #+#             */
-/*   Updated: 2026/01/07 14:28:23 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/01/19 16:33:09 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,7 @@ int main(void)
 	std::cout << stringPTR << std::endl;
 	std::cout << &stringREF << std::endl;
 
-	// ZWEITER TEIL FEHLT
+	std::cout << str << std::endl;
+	std::cout << *stringPTR << std::endl;
+	std::cout << stringREF << std::endl;
 }

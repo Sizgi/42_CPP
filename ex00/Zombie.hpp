@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 12:49:02 by sizgi             #+#    #+#             */
-/*   Updated: 2025/11/10 16:27:27 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/01/19 15:16:18 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Zombie
 		~Zombie();
 	
 	private:
-	std::string name;
+		std::string name;
 };
 
 Zombie* newZombie(std::string name);

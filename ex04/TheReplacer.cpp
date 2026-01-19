@@ -6,21 +6,11 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 16:43:52 by sizgi             #+#    #+#             */
-/*   Updated: 2026/01/07 14:39:31 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/01/19 18:20:51 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "TheReplacer.hpp"
-
-// C++ provides the following classes to perform output and input of characters to/from files:
-
-//     ofstream: Stream class to write on files
-//     ifstream: Stream class to read from files
-//     fstream: Stream class to both read and write from/to files.
-
-
-//Consider checking if file is readable as text
-//getline need a check ?
 
 TheReplacer::TheReplacer(std::string s1, std::string s2, std::string given_fn)
 {
