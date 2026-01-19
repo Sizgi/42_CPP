@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 14:10:58 by sizgi             #+#    #+#             */
-/*   Updated: 2025/11/11 16:23:49 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/01/19 16:57:09 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,11 @@
 class Weapon
 {
 	public:
-
-	void setType(std::string tip);
-	std::string getType(void);
-	Weapon(std::string name);
-	Weapon();
-	~Weapon();
+		void		setType(std::string tip);
+		std::string	getType(void);
+		Weapon(std::string name);
+		Weapon();
+		~Weapon();
 	private:
 		std::string type;
 };
