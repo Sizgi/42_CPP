@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 17:31:01 by sizgi             #+#    #+#             */
-/*   Updated: 2025/12/02 19:23:37 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/01/19 19:03:09 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,6 @@ class Fixed
 		Fixed(const float c_f);
 		float toFloat(void) const;
 		int toInt(void) const;
-		// And add the following function to the Fixed class files:
-		// An overload of the insertion («) operator that inserts a floating-point representation
-		// of the fixed-point number into the output stream object passed as a parameter.
-		
 };
 
 std::ostream &operator<<(std::ostream &falan, const Fixed &filan);

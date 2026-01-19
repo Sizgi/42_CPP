@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 17:31:01 by sizgi             #+#    #+#             */
-/*   Updated: 2025/12/02 16:39:56 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/01/19 18:55:14 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ class Fixed
 		~Fixed();
 		Fixed(const Fixed &copy_from_this);
 		Fixed &operator = (const Fixed &copy_from_this);
-		int getRawBits( void ) const;
-		void setRawBits( int const raw );
+		int getRawBits(void) const;
+		void setRawBits(const int raw);
 };
 
 

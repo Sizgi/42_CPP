@@ -6,11 +6,13 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 17:31:14 by sizgi             #+#    #+#             */
-/*   Updated: 2025/12/02 17:16:00 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/01/19 19:13:18 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+
+#include <climits>
 
 int main(void)
 {
@@ -21,6 +23,8 @@ int main(void)
 	
 	a = Fixed( 1234.4321f );
 	
+	Fixed x((INT_MAX-10));
+	std::cout << "x is " << x << std::endl;
 	std::cout << "a is " << a << std::endl;
 	std::cout << "b is " << b << std::endl;
 	std::cout << "c is " << c << std::endl;
@@ -29,5 +33,6 @@ int main(void)
 	std::cout << "b is " << b.toInt() << " as integer" << std::endl;
 	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
 	std::cout << "d is " << d.toInt() << " as integer" << std::endl;	
+	
 	return(0);
 }

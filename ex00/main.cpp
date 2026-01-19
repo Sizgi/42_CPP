@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 17:31:14 by sizgi             #+#    #+#             */
-/*   Updated: 2025/12/02 16:40:32 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/01/19 18:56:10 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,5 @@ int main(void)
 	std::cout << b.getRawBits() << std::endl;
 	std::cout << c.getRawBits() << std::endl;
 	
-	return(1);
+	return(0);
 }
