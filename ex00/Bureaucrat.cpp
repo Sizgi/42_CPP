@@ -1,0 +1,105 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/28 15:24:29 by marvin            #+#    #+#             */
+/*   Updated: 2026/01/28 15:24:29 by marvin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "Bureaucrat.hpp"
+
+////GradeTooHighException////
+Bureaucrat::GradeTooHighException::GradeTooHighException(void): ownersName("nameless") {
+	messageEx = "Grade Too High, it doesnt even exist!";
+}
+
+Bureaucrat::GradeTooHighException::GradeTooHighException(std::string name): ownersName(name) {
+	messageEx = ownersName + ", Grade Too High, it doesnt even exist!\n";
+}
+
+const char* Bureaucrat::GradeTooHighException::what() const throw() {
+	return messageEx.c_str();
+}
+
+Bureaucrat::GradeTooHighException::~GradeTooHighException() throw() {
+}
+
+////GradeTooLowException////
+Bureaucrat::GradeTooLowException::GradeTooLowException(void): ownersName("nameless") {
+	messageEx = "Grade Too Low, it doesnt even mean anything!!";
+}
+
+Bureaucrat::GradeTooLowException::GradeTooLowException(std::string name): ownersName(name) {
+	messageEx = ownersName + ", Grade Too Low, it doesnt even mean anything!!\n";
+}
+
+const char* Bureaucrat::GradeTooLowException::what() const throw() {
+	return messageEx.c_str();
+}
+
+Bureaucrat::GradeTooLowException::~GradeTooLowException() throw() {
+}
+
+////Bureaucrat////
+Bureaucrat::Bureaucrat(void): name("Dude"), grade(150) {
+}
+
+Bureaucrat::Bureaucrat(std::string givenName, unsigned int givenGrade): name(givenName), grade(givenGrade) {
+	if(grade > 150)
+		throw GradeTooLowException(givenName);
+	else if (grade < 1)
+		throw GradeTooHighException(givenName);
+}
+
+Bureaucrat::~Bureaucrat(){
+}
+
+Bureaucrat::Bureaucrat(const Bureaucrat &copyFromThis): name(copyFromThis.name), grade(copyFromThis.grade) {
+}
+
+Bureaucrat &Bureaucrat::operator=(const Bureaucrat &copyFromThis) {
+
+	if(this != &copyFromThis)
+		this->grade = copyFromThis.grade;
+	return *this;
+}
+
+
+std::string Bureaucrat::getName(void) const {
+	return(name); 
+}
+
+void Bureaucrat::setGrade(unsigned int givenGrade)
+{
+	if(givenGrade > 150)
+		throw GradeTooLowException(name);
+	else if (givenGrade < 1)
+		throw GradeTooHighException(name);
+	grade = givenGrade;
+}
+
+unsigned int Bureaucrat::getGrade(void) const {
+	return(grade);
+}
+
+void Bureaucrat::incrementer() {
+	if(grade <= 1)
+		throw GradeTooHighException(name);
+	grade -= 1;
+}
+void Bureaucrat::decrementer() {
+	if(grade >= 150)
+		throw GradeTooLowException(name);
+	grade += 1;
+}
+
+
+std::ostream &operator<<(std::ostream &out, const Bureaucrat &object)
+{
+	out << object.getName() << ", grade " << object.getGrade();
+	return out;
+}
