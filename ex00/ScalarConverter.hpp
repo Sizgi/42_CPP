@@ -6,33 +6,45 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 12:20:15 by sizgi             #+#    #+#             */
-/*   Updated: 2026/02/11 15:07:06 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/02/12 18:09:59 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SCALARCCONVERTER_HPP
 #define SCALARCCONVERTER_HPP
 
+// #pragma once
+
 #include <iostream>
 #include <cstdlib>
+#include <sstream>
+#include <string>
+#include <iomanip>
 
 class ScalarConverter {
 	public:
+		static void convert(std::string str);
+
+	private:
+		enum 			InputType
+		{
+			CHAR,
+			DOUBLE,
+			FLOAT,
+			INT,
+			INVALID,
+			PSEUDOD,
+			PSEUDOF,
+			TBD
+		};
 		ScalarConverter();
-		// ScalarConverter(char *input);
-		~ScalarConverter(void);
+		~ScalarConverter();
 		ScalarConverter(const ScalarConverter &copyThis);
 		ScalarConverter &operator=(const ScalarConverter &copyThis);
-		void 	convert(std::string &str);
-		void 	setInt(int givenN);
-		int		getInt();
-	private:
-		char charValue;
-		double doubleValue;
-		float floatValue;
-		int intValue;
-};
-
+		static InputType	pseudoCheck(std::string str);
+		static InputType	validInputCheck(std::string str);
+		InputType type;
+	};
 
 // ASCII 32-126 are printable
 
@@ -43,13 +55,11 @@ class ScalarConverter {
 // "-inf"   Negative infinity (double)
 // "-inff"  Negative infinity (float)
 
-
 // "42.0f"   Has decimal point AND ends with 'f' -> yes
 // "4.2f"    YES
 // "-4.2f"   YES
 // "42f"     nope
 // "42.0"    NOpe
-
 
 // "42"       Only digits (and maybe +/- sign)
 // "-42"      YES
