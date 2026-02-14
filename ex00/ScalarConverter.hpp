@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 12:20:15 by sizgi             #+#    #+#             */
-/*   Updated: 2026/02/12 18:09:59 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/02/14 18:58:23 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <sstream>
+#include <limits>
 #include <string>
 #include <iomanip>
 
@@ -40,10 +41,16 @@ class ScalarConverter {
 		ScalarConverter();
 		~ScalarConverter();
 		ScalarConverter(const ScalarConverter &copyThis);
-		ScalarConverter &operator=(const ScalarConverter &copyThis);
+		ScalarConverter 	&operator=(const ScalarConverter &copyThis);
 		static InputType	pseudoCheck(std::string str);
-		static InputType	validInputCheck(std::string str);
-		InputType type;
+		static InputType	charCheck(std::string str);
+		static InputType	numericalCheck(std::string str);		
+		static InputType 	typeCheck(std::string str);
+		static void			floatConverter(std::string str);
+		static void			doubleConverter(std::string str);
+		static void			intConverter(std::string str);
+		static void			charConverter(std::string str);
+		static InputType type;
 	};
 
 // ASCII 32-126 are printable

@@ -6,11 +6,11 @@
 #    By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/05 13:52:30 by sizgi             #+#    #+#              #
-#    Updated: 2026/02/10 15:34:29 by sizgi            ###   ########.fr        #
+#    Updated: 2026/02/14 18:54:10 by sizgi            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = ScalarConverter.cpp main.cpp
+SRC = main.cpp ScalarConverter.cpp
 
 OBJ_DIR = obj
 
