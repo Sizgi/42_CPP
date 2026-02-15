@@ -6,7 +6,7 @@
 #    By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/05 13:52:30 by sizgi             #+#    #+#              #
-#    Updated: 2026/02/14 18:54:10 by sizgi            ###   ########.fr        #
+#    Updated: 2026/02/15 14:51:55 by sizgi            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ DEPS = $(OBJ:.o=.d)
 
 NAME = ex00
 
-CXXFLAGS = -Wall -Werror -Wextra -std=c++98 -MMD -MP #-g -fsanitize=undefined -pedantic -Wno-newline-eof
+CXXFLAGS = -Wall -Werror -Wextra -std=c++98 -MMD -MP -g #-fsanitize=undefined -pedantic -Wno-newline-eof
 CXX = c++
 
 RM = rm -rf

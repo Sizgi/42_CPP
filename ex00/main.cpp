@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 12:03:32 by sizgi             #+#    #+#             */
-/*   Updated: 2026/02/14 18:53:49 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/02/15 15:46:30 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int main(int argc, char **argv) {
 	std::cout << "9------------------------" << std::endl;
 	ScalarConverter::convert("-2147483649");
 	std::cout << "10------HERE-------------" << std::endl;
-	ScalarConverter::convert("2222222222222222222222222222222222222");
+	ScalarConverter::convert("2222222222222222222222222222222222222f");
 	std::cout << "11-----------------------" << std::endl;
 	ScalarConverter::convert("22222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222");
 	std::cout << "12-----HERE--------------" << std::endl;
@@ -69,7 +69,7 @@ int main(int argc, char **argv) {
 	std::cout << "13-----------------------" << std::endl;
 	ScalarConverter::convert("333e-6");
 	std::cout << "14-----------------------" << std::endl;
-	ScalarConverter::convert("333e12f");
+	ScalarConverter::convert("+333e88");
 	std::cout << "15-----------------------" << std::endl;
 	ScalarConverter::convert("333e-2f");
 	std::cout << "16-----------------------" << std::endl;
@@ -85,7 +85,14 @@ int main(int argc, char **argv) {
 	std::cout << "21-----------------------" << std::endl;
 	ScalarConverter::convert("double");
 	std::cout << "22-----------------------" << std::endl;
-
+	ScalarConverter::convert("+inf");
+	std::cout << "23-----------------------" << std::endl;
+	ScalarConverter::convert("-inf");
+	std::cout << "24-----------------------" << std::endl;
+	ScalarConverter::convert("+inff");
+	std::cout << "25-----------------------" << std::endl;
+	ScalarConverter::convert("-inff");
+	std::cout << "26-----------------------" << std::endl;
 	return 0;
 }
 
@@ -100,26 +107,30 @@ int main(int argc, char **argv) {
 // 		std::cout << filan << std::endl;
 // 		return 0;
 // 	}
-// 	std::string str = "+38888888888888888888888888888888888888888888f";
+// 	std::string str = "inf";
 // 	std::istringstream data(str);
 // 	// float nbr = 0.0f;
 // 	double number = 0;
+// 	data >> number;
 // 	// nbr = nbr/512;
-// 	// std::cout << std::fixed << num << std::endl
+// 	std::cout << std::fixed << number << std::endl;
+// 	std::cout << number << std::endl;
+// 	std::string str1 = "NaN";
 // 	int i = 0;
-// 	data >> i;
-// 	if(!data.fail() && data.eof())
-// 	{
+// 	std::istringstream data1(str1);
+// 	data1 >> i;
+// 	// if(!data.fail() && data.eof())
+// 	// {
 // 		// data >> nbr;
 // 		std::cout << i << std::endl;
 // 		std::cout << std::fixed << i << std::endl;
-// 	}
-// 	else
-// 	{
-// 		std::istringstream delta(str);
-// 		delta >> number;
-// 		std::cout << number << std::endl;
-// 		std::cout << std::fixed << number << std::endl;
-// 	}
+// 	// }
+// 	// else
+// 	// {
+// 	// 	std::istringstream delta(str);
+// 	// 	delta >> number;
+// 	// 	std::cout << number << std::endl;
+// 	// 	std::cout << std::fixed << number << std::endl;
+// 	// }
 // 	return 0;
 // }

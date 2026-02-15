@@ -6,11 +6,13 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 12:20:22 by sizgi             #+#    #+#             */
-/*   Updated: 2026/02/14 19:06:24 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/02/15 15:34:58 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
+
+ScalarConverter::InputType ScalarConverter::type = ScalarConverter::TBD;
 
 ScalarConverter::ScalarConverter() {
 	type = TBD;
@@ -36,9 +38,9 @@ ScalarConverter::InputType 	ScalarConverter::pseudoCheck(std::string str) {
 // "+inff"  Positive infinity (float)
 // "-inf"   Negative infinity (double)
 // "-inff"  Negative infinity (float)
-	if(str == "nan" || str == "NaN" || str == "+inf" || str == "-inf")
+	if(str == "nan" || str == "NaN" || str == "+inf" || str == "-inf" || str == "inf")
 		return PSEUDOD;
-	if(str == "nanf" || str == "NaNf" || str == "+inff" || str == "-inff")
+	if(str == "nanf" || str == "NaNf" || str == "+inff" || str == "-inff" || str == "inff")
 		return PSEUDOF;
 	return TBD;
 }
@@ -72,7 +74,7 @@ void 	ScalarConverter::charConverter(std::string str) {
 	std::cout << "Given Value: Character" << std::endl;
 	std::cout << "Char: "<< charMi << std::endl;
 	std::cout << "Integer: " << static_cast<int>(charMi) << std::endl;
-	std::cout << "Double: " << std::fixed << charMi << std::endl;
+	std::cout << "Double: " << std::fixed << static_cast<double>(charMi) << std::endl;
 	std::cout << "Float: " << std::fixed << static_cast<float>(charMi) <<"f"<< std::endl;
 }
 
@@ -80,13 +82,16 @@ void 	ScalarConverter::floatConverter(std::string str) {
 	float floatMu = 0;
 	std::istringstream floatData(str);
 	floatData >> floatMu;
-	std::cout << "Given Value: Double" << std::endl;
+	std::cout << "Given Value: Float" << std::endl;
 	if(type == FLOAT) {
-		if(std::isprint(floatMu))
-			std::cout << "Char: "<<static_cast<char>(floatMu) << std::endl;
-		else
+		if(floatMu < 0 || floatMu > std::numeric_limits<char>::max() || !(std::isprint(floatMu)))
 			std::cout << "Char: Non-Displayable" << std::endl;
-		std::cout << "Integer: " << static_cast<int>(floatMu) << std::endl;
+		else
+			std::cout << "Char: "<<static_cast<char>(floatMu) << std::endl;
+		if (floatMu > std::numeric_limits<int>::max() || floatMu < std::numeric_limits<int>::min())
+			std::cout << "Integer: impossible" << std::endl;
+		else
+			std::cout << "Integer: " << static_cast<int>(floatMu) << std::endl;
 		std::cout << "Double: " << std::fixed << static_cast<double>(floatMu) << std::endl;
 		std::cout << "Float: " << std::fixed << floatMu <<"f"<< std::endl;
 	}
@@ -104,11 +109,14 @@ void 	ScalarConverter::doubleConverter(std::string str) {
 	doubleData >> doubleMi;
 	std::cout << "Given Value: Double" << std::endl;
 	if(type == DOUBLE) {
-		if(std::isprint(doubleMi))
-			std::cout << "Char: "<<static_cast<char>(doubleMi) << std::endl;
-		else
+		if(doubleMi < 0 || doubleMi > std::numeric_limits<char>::max() || !(std::isprint(doubleMi)))
 			std::cout << "Char: Non-Displayable" << std::endl;
-		std::cout << "Integer: " << static_cast<int>(doubleMi) << std::endl;
+		else
+			std::cout << "Char: "<<static_cast<char>(doubleMi) << std::endl;
+		if (doubleMi > std::numeric_limits<int>::max() || doubleMi < std::numeric_limits<int>::min())
+			std::cout << "Integer: impossible" << std::endl;
+		else
+			std::cout << "Integer: " << static_cast<int>(doubleMi) << std::endl;
 		std::cout << "Double: " << std::fixed << doubleMi << std::endl;
 		std::cout << "Float: " << std::fixed << static_cast<float>(doubleMi) <<"f"<< std::endl;
 	}
@@ -127,16 +135,18 @@ void	ScalarConverter::intConverter(std::string str) {
 	if(!intData.fail() && intData.eof())
 	{
 		std::cout << "Given Value: Integer" << std::endl;
-		if(std::isprint(intMi))
-			std::cout << "Char: "<<static_cast<char>(intMi) << std::endl;
-		else
+		if(intMi < 0 || intMi > std::numeric_limits<char>::max() || !(std::isprint(intMi)))
 			std::cout << "Char: Non-Displayable" << std::endl;
+		else
+			std::cout << "Char: "<<static_cast<char>(intMi) << std::endl;
 		std::cout << "Integer: " << intMi << std::endl;
 		std::cout << "Double: " << static_cast<double>(intMi) << std::endl;
 		std::cout << "Float: " << static_cast<float>(intMi) << "f" << std::endl;
 	}
-	else
+	else {
+		type = DOUBLE;
 		doubleConverter(str);
+	}
 }
 
 ScalarConverter::InputType 	ScalarConverter::numericalCheck(std::string str) {
@@ -183,7 +193,7 @@ ScalarConverter::InputType 	ScalarConverter::typeCheck(std::string str) {
 }
 
 void ScalarConverter::convert(std::string str) {
-	typeCheck(str);
+	type = typeCheck(str);
 	if(type == INVALID)
 		std::cout << "Invalid value!" << std::endl;
 	else if(type == CHAR)
