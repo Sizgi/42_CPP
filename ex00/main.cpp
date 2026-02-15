@@ -6,37 +6,11 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 12:03:32 by sizgi             #+#    #+#             */
-/*   Updated: 2026/02/15 15:46:30 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/02/15 16:51:39 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
-
-// int main(int argc, char **argv) {
-// 	if(argc != 2)
-// 	{
-// 		std::cout << "Invalid number of Parameters!\n";
-// 		return(1);
-// 	}
-// 	// char tempArray[str.length() + 1];
-// 	// strcpy(tempArray, str.c_str());
-	
-// 	std::string str = argv[1];
-// 	if(str.length() == 3)
-// 		std::cout << "yes\n";
-// 	if(str.length() == 1)
-// 		std::cout << "no\n";
-// 	ScalarConverter samet;
-// 	samet.convert(str);
-//     double d = std::atof(argv[1]);
-// 	float f = std::atof(argv[1]);
-// 	// std::cout << std::fixed << std::setprecision(1);
-//     std::cout << "Double: " << d << std::endl;
-//     std::cout << "Float: " << f << "f" << std::endl;
-//     // std::cout << "Double: " << d << std::endl;
-//     // std::cout << "Float: " << f << std::endl;
-// 	return 0;
-// }
 
 int main(int argc, char **argv) {
 	if (argc == 2)
@@ -95,42 +69,3 @@ int main(int argc, char **argv) {
 	std::cout << "26-----------------------" << std::endl;
 	return 0;
 }
-
-// int main(int argc, char **argv) {
-// 	if(argc == 2)
-// 	{
-// 		std::istringstream deta(argv[1]);
-// 		// char c = 'l';
-// 		std::string filan;
-// 		deta >> filan;
-// 		std::cout << filan.length() << std::endl;
-// 		std::cout << filan << std::endl;
-// 		return 0;
-// 	}
-// 	std::string str = "inf";
-// 	std::istringstream data(str);
-// 	// float nbr = 0.0f;
-// 	double number = 0;
-// 	data >> number;
-// 	// nbr = nbr/512;
-// 	std::cout << std::fixed << number << std::endl;
-// 	std::cout << number << std::endl;
-// 	std::string str1 = "NaN";
-// 	int i = 0;
-// 	std::istringstream data1(str1);
-// 	data1 >> i;
-// 	// if(!data.fail() && data.eof())
-// 	// {
-// 		// data >> nbr;
-// 		std::cout << i << std::endl;
-// 		std::cout << std::fixed << i << std::endl;
-// 	// }
-// 	// else
-// 	// {
-// 	// 	std::istringstream delta(str);
-// 	// 	delta >> number;
-// 	// 	std::cout << number << std::endl;
-// 	// 	std::cout << std::fixed << number << std::endl;
-// 	// }
-// 	return 0;
-// }
