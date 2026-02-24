@@ -30,8 +30,7 @@ RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &copyFromThis
 }
 
 RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &copyFromThis) {
-	if(this != &copyFromThis)
-	{
+	if(this != &copyFromThis) {
 		this->AForm::setSign(copyFromThis.AForm::getSign());
 		this->target = copyFromThis.target;
 	}
@@ -54,15 +53,12 @@ void RobotomyRequestForm::robotomizer(void) const {
 
 int RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {
-	// Required grades: sign 72, exec 45
-	// Makes some drilling noises, then informs that <target> has been robotomized
-	// successfully 50% of the time. Otherwise, it informs that the robotomy failed.
 	if(getSign())
 	{
 		if(executor.getGrade() <= getGradeToExecute())
 		{
-			std::cout << executor.getName() << " executed " << this->getName()  << " form.\n";
 			robotomizer();
+			std::cout << executor.getName() << " executed " << this->getName()  << " form.\n";
 		}
 		else
 			throw GradeTooLowException(executor.getName());

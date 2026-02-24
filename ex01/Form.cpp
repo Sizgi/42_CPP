@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/30 18:45:57 by marvin            #+#    #+#             */
-/*   Updated: 2026/01/30 18:45:57 by marvin           ###   ########.fr       */
+/*   Created: 2026/02/05 13:53:00 by sizgi             #+#    #+#             */
+/*   Updated: 2026/02/05 13:53:00 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,7 @@ const char* Form::GradeTooHighException::what() const throw() {
 	return messageEx.c_str();
 }
 
-Form::GradeTooHighException::~GradeTooHighException() throw() {
-}
+Form::GradeTooHighException::~GradeTooHighException() throw() {}
 
 ////GradeTooLowException////
 Form::GradeTooLowException::GradeTooLowException(void): ownersName("nameless") {
@@ -42,12 +41,10 @@ const char* Form::GradeTooLowException::what() const throw() {
 	return messageEx.c_str();
 }
 
-Form::GradeTooLowException::~GradeTooLowException() throw() {
-}
+Form::GradeTooLowException::~GradeTooLowException() throw() {}
 
 ////Form////
-Form::Form(void): formName("default"), sign(0), gradeToSign(150), gradeToExecute(150)  {
-}
+Form::Form(void): formName("default"), sign(0), gradeToSign(150), gradeToExecute(150) {}
 
 Form::Form(const std::string givenName, const int gradeToS, const int gradeToE): 
 	formName(givenName), sign(0), gradeToSign(gradeToS), gradeToExecute(gradeToE) {
@@ -55,15 +52,13 @@ Form::Form(const std::string givenName, const int gradeToS, const int gradeToE):
 		throw GradeTooLowException(givenName);
 	else if (gradeToS < 1 || gradeToE < 1)
 		throw GradeTooHighException(givenName);
-
 }
 
-Form::~Form(void) {
-}
+Form::~Form(void) {}
 
 Form::Form(const Form &copyFromThis): 
-formName(copyFromThis.formName), sign(copyFromThis.sign), gradeToSign(copyFromThis.gradeToSign), gradeToExecute(copyFromThis.gradeToExecute){
-} 
+formName(copyFromThis.formName), sign(copyFromThis.sign),
+ gradeToSign(copyFromThis.gradeToSign), gradeToExecute(copyFromThis.gradeToExecute){} 
 
 Form &Form::operator=(const Form &copyFromThis) {
 	if(this != &copyFromThis)
@@ -81,8 +76,6 @@ void Form::beSigned(const Bureaucrat &bearaucrat) {
 	else
 		sign = 1;
 }
-// void Form::setSign(bool ka)
-// {}
 
 bool Form::getSign(void) const {
 	return sign;

@@ -23,12 +23,11 @@ PresidentialPardonForm::~PresidentialPardonForm(void) {
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &copyFromThis):
- AForm(copyFromThis.AForm::getName(), copyFromThis.AForm::getGradeToSign(), copyFromThis.AForm::getGradeToExecute()), target(copyFromThis.target) {
-}
+ AForm(copyFromThis.AForm::getName(), copyFromThis.AForm::getGradeToSign(),
+ copyFromThis.AForm::getGradeToExecute()), target(copyFromThis.target) {}
 
 PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &copyFromThis) {
-	if(this != &copyFromThis)
-	{
+	if(this != &copyFromThis) {
 		this->AForm::setSign(copyFromThis.AForm::getSign());
 		this->target = copyFromThis.target;
 	}
@@ -39,8 +38,7 @@ std::string PresidentialPardonForm::getTarget(void) const {
 	return(target);
 }
 
-int PresidentialPardonForm::execute(Bureaucrat const &executor) const
-{
+int PresidentialPardonForm::execute(Bureaucrat const &executor) const {
 	if(getSign())
 	{
 		if(executor.getGrade() <= getGradeToExecute()) {

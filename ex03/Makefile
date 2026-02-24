@@ -5,12 +5,13 @@
 #                                                     +:+ +:+         +:+      #
 #    By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2026/02/05 13:52:30 by sizgi             #+#    #+#              #
-#    Updated: 2026/02/17 14:33:17 by sizgi            ###   ########.fr        #
+#    Created: 2025/10/10 16:46:47 by sizgi             #+#    #+#              #
+#    Updated: 2026/02/18 14:43:03 by sizgi            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = Bureaucrat.cpp main.cpp
+SRC = Bureaucrat.cpp main.cpp AForm.cpp ShrubberyCreationForm.cpp \
+	RobotomyRequestForm.cpp PresidentialPardonForm.cpp Intern.cpp
 
 OBJ_DIR = obj
 
@@ -18,7 +19,7 @@ OBJ = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 
 DEPS = $(OBJ:.o=.d)
 
-NAME = ex00
+NAME = ex03
 
 CXXFLAGS = -Wall -Werror -Wextra -std=c++98 -MMD -MP #-g -fsanitize=undefined -pedantic -Wno-newline-eof
 CXX = c++

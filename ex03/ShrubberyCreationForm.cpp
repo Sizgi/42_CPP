@@ -5,26 +5,23 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/05 13:55:19 by sizgi             #+#    #+#             */
-/*   Updated: 2026/02/05 13:55:19 by sizgi            ###   ########.fr       */
+/*   Created: 2026/02/05 13:56:35 by sizgi             #+#    #+#             */
+/*   Updated: 2026/02/05 13:56:35 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 #include "Bureaucrat.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm(void): AForm("ShrubberyCreationForm", 145, 137), target("default") {
-}
+ShrubberyCreationForm::ShrubberyCreationForm(void): AForm("ShrubberyCreationForm", 145, 137), target("default") {}
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string sName): AForm("ShrubberyCreationForm", 145, 137), target(sName) {
-}
+ShrubberyCreationForm::ShrubberyCreationForm(std::string sName): AForm("ShrubberyCreationForm", 145, 137), target(sName) {}
 
-ShrubberyCreationForm::~ShrubberyCreationForm(void) {
-}
+ShrubberyCreationForm::~ShrubberyCreationForm(void) {}
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &copyFromThis):
- AForm(copyFromThis.AForm::getName(), copyFromThis.AForm::getGradeToSign(), copyFromThis.AForm::getGradeToExecute()), target(copyFromThis.target) {
-}
+ AForm(copyFromThis.AForm::getName(), copyFromThis.AForm::getGradeToSign(), 
+ copyFromThis.AForm::getGradeToExecute()), target(copyFromThis.target) {}
 
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &copyFromThis) {
 	if(this != &copyFromThis)
@@ -53,10 +50,8 @@ void ShrubberyCreationForm::schrubTree_writer(void) const {
     outfile.close();
 }
 
-int ShrubberyCreationForm::execute(Bureaucrat const &executor) const
-{
-	if(getSign())
-	{
+int ShrubberyCreationForm::execute(Bureaucrat const &executor) const {
+	if(getSign()) {
 		if(getGradeToExecute() >= executor.getGrade()) {
 			schrubTree_writer();
 			std::cout << executor.getName() << " executed " << this->getName()  << " form.\n";

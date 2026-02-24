@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AForm.cpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/30 18:45:57 by marvin            #+#    #+#             */
-/*   Updated: 2026/01/30 18:45:57 by marvin           ###   ########.fr       */
+/*   Created: 2026/02/05 13:54:03 by sizgi             #+#    #+#             */
+/*   Updated: 2026/02/05 13:54:03 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ class AForm {
 
 		AForm();
 		AForm(const std::string givenName, const int gradeToS, const int gradeToE);
-		~AForm();
+		virtual ~AForm();
 		AForm(const AForm &copyFromThis);
 		AForm &operator=(const AForm &copyFromThis);
 		std::string getName(void) const;
@@ -64,7 +64,6 @@ class AForm {
 		unsigned int getGradeToSign(void) const;
 		unsigned int getGradeToExecute(void) const;
 		void beSigned(const Bureaucrat &bearaucrat);
-		// virtual execute(Bureaucrat const & executor) const = 0;
  		virtual int execute(Bureaucrat const & executor) const = 0;
 	private:
 		const std::string 	AFormName;

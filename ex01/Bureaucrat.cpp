@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/28 15:24:29 by marvin            #+#    #+#             */
-/*   Updated: 2026/01/28 15:24:29 by marvin           ###   ########.fr       */
+/*   Created: 2026/02/05 13:52:49 by sizgi             #+#    #+#             */
+/*   Updated: 2026/02/05 13:52:49 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,14 +56,11 @@ Bureaucrat::Bureaucrat(std::string givenName, unsigned int givenGrade): name(giv
 		throw GradeTooHighException(givenName);
 }
 
-Bureaucrat::~Bureaucrat(){
-}
+Bureaucrat::~Bureaucrat() {}
 
-Bureaucrat::Bureaucrat(const Bureaucrat &copyFromThis): name(copyFromThis.name), grade(copyFromThis.grade) {
-}
+Bureaucrat::Bureaucrat(const Bureaucrat &copyFromThis): name(copyFromThis.name), grade(copyFromThis.grade) {}
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &copyFromThis) {
-
 	if(this != &copyFromThis)
 		this->grade = copyFromThis.grade;
 	return *this;
@@ -73,8 +70,7 @@ std::string Bureaucrat::getName(void) const {
 	return(name); 
 }
 
-void Bureaucrat::setGrade(unsigned int givenGrade)
-{
+void Bureaucrat::setGrade(unsigned int givenGrade) {
 	if(givenGrade > 150)
 		throw GradeTooLowException(name);
 	else if (givenGrade < 1)
@@ -96,6 +92,7 @@ void Bureaucrat::decrementer() {
 		throw GradeTooLowException(name);
 	grade += 1;
 }
+
 void Bureaucrat::signForm(Form &bla) {
 	if(bla.getSign())
 	{
@@ -112,8 +109,7 @@ void Bureaucrat::signForm(Form &bla) {
 		}
 }
 
-std::ostream &operator<<(std::ostream &out, const Bureaucrat &object)
-{
+std::ostream &operator<<(std::ostream &out, const Bureaucrat &object) {
 	out << object.getName() << ", grade " << object.getGrade();
 	return out;
 }

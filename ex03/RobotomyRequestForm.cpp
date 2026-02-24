@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PresidentialPardonForm.cpp                            :+:      :+:    :+:   */
+/*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,23 +10,26 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
 #include "Bureaucrat.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm(void): AForm("PresidentialPardonForm", 25, 5), target("default") {
+RobotomyRequestForm::RobotomyRequestForm(void): AForm("RobotomyRequestForm", 72, 45), target("default") {
+	srand(time(NULL));
 }
 
-PresidentialPardonForm::PresidentialPardonForm(std::string givenTarget): AForm("PresidentialPardonForm", 25, 5), target(givenTarget) {
+RobotomyRequestForm::RobotomyRequestForm(std::string givenTarget): AForm("RobotomyRequestForm", 72, 45), target(givenTarget) {
+	srand(time(NULL));
 }
 
-PresidentialPardonForm::~PresidentialPardonForm(void) {
+RobotomyRequestForm::~RobotomyRequestForm(void) {
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &copyFromThis):
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &copyFromThis):
  AForm(copyFromThis.AForm::getName(), copyFromThis.AForm::getGradeToSign(), copyFromThis.AForm::getGradeToExecute()), target(copyFromThis.target) {
+	srand(time(NULL));
 }
 
-PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &copyFromThis) {
+RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &copyFromThis) {
 	if(this != &copyFromThis)
 	{
 		this->AForm::setSign(copyFromThis.AForm::getSign());
@@ -35,16 +38,27 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPard
 	return *this;
 }
 
-std::string PresidentialPardonForm::getTarget(void) const {
+std::string RobotomyRequestForm::getTarget(void) const {
 	return(target);
 }
 
-int PresidentialPardonForm::execute(Bureaucrat const &executor) const
+void RobotomyRequestForm::robotomizer(void) const {
+	int randomNumber = 0;
+	randomNumber = rand() % 100 + 1;
+	std::cout << "DRILLING NOISES * Bzzzz... Wrrr... Bzzzz...\n";
+	if(randomNumber < 51)
+		std::cout << "Robotomizing " << target << " has failed!\n";
+	else
+		std::cout << target << " has been Robotomized!\n";
+}
+
+int RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {
 	if(getSign())
 	{
-		if(executor.getGrade() <= getGradeToExecute()) {
-			std::cout <<target<< " has been pardoned by Zaphod Beeblebrox.\n";
+		if(executor.getGrade() <= getGradeToExecute())
+		{
+			robotomizer();
 			std::cout << executor.getName() << " executed " << this->getName()  << " form.\n";
 		}
 		else
@@ -55,7 +69,7 @@ int PresidentialPardonForm::execute(Bureaucrat const &executor) const
 	return 0;
 }
 
-std::ostream &operator<<(std::ostream &buffer, const PresidentialPardonForm &object) {
+std::ostream &operator<<(std::ostream &buffer, const RobotomyRequestForm &object) {
 	buffer << "Form name: "<< object.getName() << "\n";
 	buffer << "Grade needs to sign: " << object.getGradeToSign() << "\n";
 	buffer << "Grade needs to execute: " << object.getGradeToExecute() << "\n";

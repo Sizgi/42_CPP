@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
+/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/28 15:24:29 by marvin            #+#    #+#             */
-/*   Updated: 2026/01/28 15:24:29 by marvin           ###   ########.fr       */
+/*   Created: 2026/02/05 13:52:55 by sizgi             #+#    #+#             */
+/*   Updated: 2026/02/05 13:52:55 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,8 @@ class Bureaucrat {
 	private:
 		const std::string name;
 		unsigned int grade;
-		// void GradeTooHighException();
-		// void GradeTooLowException();
-
 };
 
 std::ostream &operator<<(std::ostream &falan, const Bureaucrat &filan);
-
 
 #endif

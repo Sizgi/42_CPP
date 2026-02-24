@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/05 13:54:15 by sizgi             #+#    #+#             */
-/*   Updated: 2026/02/05 13:54:15 by sizgi            ###   ########.fr       */
+/*   Created: 2026/02/05 13:55:53 by sizgi             #+#    #+#             */
+/*   Updated: 2026/02/05 13:55:53 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,6 @@ void Bureaucrat::signAForm(AForm &bla) {
 void Bureaucrat::executeForm(AForm const &form) {
 	try {
 		form.execute(*this);
-		// std::cout << name << " executed " << form.getName() << " form.\n";
 	}
 	catch(AForm::GradeTooLowException &error) {
  		std::cout << name << " couldn't executed " << form.getName() 
@@ -126,10 +125,9 @@ void Bureaucrat::executeForm(AForm const &form) {
            << " because " << error.what();
 	}
 	catch (std::exception& e) {
-        		std::cout << "Exception: " << e.what() << std::endl;
-    		}
+        std::cout << "Exception: " << e.what() << std::endl;
+    }
 }
-
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &object)
 {

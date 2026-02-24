@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/05 13:53:13 by sizgi             #+#    #+#             */
-/*   Updated: 2026/02/05 13:53:13 by sizgi            ###   ########.fr       */
+/*   Created: 2026/02/05 13:55:48 by sizgi             #+#    #+#             */
+/*   Updated: 2026/02/05 13:55:48 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_HPP
-#define FORM_HPP
+#ifndef AForm_HPP
+#define AForm_HPP
 
 #include <iostream>
 #include <exception>
 
 class Bureaucrat;
 
-class Form {
+class AForm {
 	public:
 			class GradeTooHighException : public std::exception {
 			public:
@@ -31,7 +31,7 @@ class Form {
 				std::string messageEx;
 		};
 
-		class GradeTooLowException : public std::exception {
+			class GradeTooLowException : public std::exception {
 			public:
 				GradeTooLowException();
 				GradeTooLowException(std::string name);
@@ -42,24 +42,36 @@ class Form {
 				std::string messageEx;
 		};
 
-		Form();
-		Form(const std::string givenName, const int gradeToS, const int gradeToE);
-		~Form();
-		Form(const Form &copyFromThis);
-		Form &operator=(const Form &copyFromThis);
+			class FormNotSigned : public std::exception {
+			public:
+				FormNotSigned();
+				FormNotSigned(std::string name);
+				~FormNotSigned() throw();
+				const char* what() const throw();
+			private:
+				std::string ownersName;
+				std::string messageEx;
+		};
+
+		AForm();
+		AForm(const std::string givenName, const int gradeToS, const int gradeToE);
+		virtual ~AForm();
+		AForm(const AForm &copyFromThis);
+		AForm &operator=(const AForm &copyFromThis);
 		std::string getName(void) const;
 		bool getSign(void) const;
+		void setSign(bool signature);
 		unsigned int getGradeToSign(void) const;
 		unsigned int getGradeToExecute(void) const;
 		void beSigned(const Bureaucrat &bearaucrat);
-
+ 		virtual int execute(Bureaucrat const & executor) const = 0;
 	private:
-		const std::string 	formName;
+		const std::string 	AFormName;
 		bool				sign;
 		const unsigned int	gradeToSign;
 		const unsigned int	gradeToExecute;
 };
 
-std::ostream &operator<<(std::ostream &buffer, const Form &object);
+std::ostream &operator<<(std::ostream &buffer, const AForm &object);
 
 #endif

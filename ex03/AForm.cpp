@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/05 13:54:09 by sizgi             #+#    #+#             */
-/*   Updated: 2026/02/05 13:54:09 by sizgi            ###   ########.fr       */
+/*   Created: 2026/02/05 13:56:47 by sizgi             #+#    #+#             */
+/*   Updated: 2026/02/05 13:56:47 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ const char* AForm::GradeTooHighException::what() const throw() {
 	return messageEx.c_str();
 }
 
-AForm::GradeTooHighException::~GradeTooHighException() throw() {}
+AForm::GradeTooHighException::~GradeTooHighException() throw() {
+}
 
 ////GradeTooLowException////
 AForm::GradeTooLowException::GradeTooLowException(void): ownersName("nameless") {
@@ -47,9 +48,11 @@ AForm::GradeTooLowException::~GradeTooLowException() throw() {}
 AForm::FormNotSigned::FormNotSigned(void): ownersName("nameless") {
 	messageEx = " is not signed!-AForm\n";
 }
+
 AForm::FormNotSigned::FormNotSigned(std::string name): ownersName(name) {
 	messageEx = ownersName + " is not signed!!-AForm\n";
 }
+
 AForm::FormNotSigned::~FormNotSigned() throw() {}
 
 const char* AForm::FormNotSigned::what() const throw() {
@@ -65,12 +68,14 @@ AForm::AForm(const std::string givenName, const int gradeToS, const int gradeToE
 		throw GradeTooLowException(givenName);
 	else if (gradeToS < 1 || gradeToE < 1)
 		throw GradeTooHighException(givenName);
+
 }
 
 AForm::~AForm(void) {}
 
-AForm::AForm(const AForm &copyFromThis): AFormName(copyFromThis.AFormName), sign(copyFromThis.sign),
- gradeToSign(copyFromThis.gradeToSign), gradeToExecute(copyFromThis.gradeToExecute) {} 
+AForm::AForm(const AForm &copyFromThis): 
+AFormName(copyFromThis.AFormName), sign(copyFromThis.sign), gradeToSign(copyFromThis.gradeToSign), gradeToExecute(copyFromThis.gradeToExecute){
+} 
 
 AForm &AForm::operator=(const AForm &copyFromThis) {
 	if(this != &copyFromThis)
@@ -113,5 +118,6 @@ std::ostream &operator<<(std::ostream &buffer, const AForm &object) {
 		buffer << "signed\n";
 	else
 		buffer << "not signed\n";
+
 	return buffer;
 }
