@@ -6,14 +6,11 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 12:20:15 by sizgi             #+#    #+#             */
-/*   Updated: 2026/02/15 16:53:36 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/02/18 13:27:20 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCALARCCONVERTER_HPP
-#define SCALARCCONVERTER_HPP
-
-// #pragma once
+#pragma once
 
 #include <iostream>
 #include <cstdlib>
@@ -50,6 +47,4 @@ class ScalarConverter {
 		static void			intConverter(std::string str);
 		static void			charConverter(std::string str);
 		static InputType type;
-	};
-
-#endif
+};

@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 12:20:22 by sizgi             #+#    #+#             */
-/*   Updated: 2026/02/15 16:52:59 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/02/18 13:26:03 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,6 @@ ScalarConverter::ScalarConverter() {
 
 ScalarConverter::~ScalarConverter(void) {
 }
-
-// ScalarConverter::ScalarConverter(const ScalarConverter &copyThis) {
-// }
-
-// ScalarConverter &ScalarConverter::operator=(const ScalarConverter &copyThis) {
-// 	return *this;
-// }
 
 ScalarConverter::InputType 	ScalarConverter::pseudoCheck(std::string str) {	
 	if(str == "nan" || str == "NaN" || str == "+inf" || str == "-inf" || str == "inf")
