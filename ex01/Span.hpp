@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 16:31:32 by sizgi             #+#    #+#             */
-/*   Updated: 2026/03/11 14:59:17 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/03/13 12:52:58 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 #include <iostream>
 #include <stdexcept>
 #include <vector>
-
+#include <algorithm>
+#include <limits.h>
+#include <math.h>
 class Span {
 	public:
 		Span();
@@ -24,11 +26,13 @@ class Span {
 		Span(const Span &copyThis);
 		Span &operator=(const Span &copyThis);
 		void addNumber(int givenNumber);
-		int shortestSpan();
-		int longestSpan();
+		void addMultipleNumber(unsigned int givenNumber);
+		unsigned int shortestSpan();
+		unsigned int longestSpan();
+		void addFromContainer(std::vector<int>::iterator givenBegin, std::vector<int>::iterator givenEnd);
 	private:
-		int value;
 		std::vector<int> memberV;
+		unsigned int n;
 };
 
 // Next, implement two member functions: shortestSpan() and longestSpan()
