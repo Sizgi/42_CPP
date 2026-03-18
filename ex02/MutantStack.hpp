@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 14:55:46 by sizgi             #+#    #+#             */
-/*   Updated: 2026/03/13 15:37:04 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/03/18 14:46:38 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,26 @@
 #include <stack>
 #include <algorithm>
 #include <iostream>
+#include <vector>
 
 
 template<typename T>
 class MutantStack: public std::stack<T> {
 	public:
-		T ptrToBegin;
-		T ptrToEnd;
-		void iterators()
+		typedef typename std::stack<T>::container_type::iterator iterator;
+		typedef typename std::stack<T>::container_type::const_iterator const_iterator;
+		
+		iterator begin();
+		iterator end();
+		
+		const_iterator begin() const;
+		const_iterator end() const;
+		
+		MutantStack();
+		~MutantStack();
+		MutantStack(const MutantStack<T> &copyThis);
+		MutantStack &operator=(const MutantStack<T> &copyThis);
 	private:
 };
 
-//stack.top() => last
+#include "MutantStack.tpp"
