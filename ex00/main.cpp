@@ -6,11 +6,13 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/22 13:59:35 by sizgi             #+#    #+#             */
-/*   Updated: 2026/03/22 14:58:01 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/03/24 14:21:52 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Btc.hpp"
+#include <fstream>
+#include <sstream>
 
 bool argCheck(const std::string &argument) {
 	std::string fileTyp = ".csv";
@@ -21,8 +23,8 @@ bool argCheck(const std::string &argument) {
 	if( check != std::string::npos) {
 		valid = true;
 		if( valid == true && argument.size() != check+4) {
-			valid = false;
 			std::cout << "nope" << std::endl;
+			valid = false;
 		}
 	}
 	//// ALTERNATE-METHOD ////
@@ -43,7 +45,11 @@ int main (int argc, char **argv) {
 		std::cout << "Invalid argument typ!" << std::endl;
 		return(1);
 	}
-	
+	//file opening
+	std::ifstream givenFile(argv[1]);
+	if(!givenFile.is_open())
+		throw std::runtime_error("Could not open the given File!\n");
+	//file opening
 	std::cout << argv[1] << std::endl;
 	return (0);
 }
