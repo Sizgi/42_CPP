@@ -6,50 +6,40 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/22 13:59:35 by sizgi             #+#    #+#             */
-/*   Updated: 2026/03/24 14:21:52 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/03/25 16:57:25 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Btc.hpp"
-#include <fstream>
-#include <sstream>
+#include "BitcoinExchange.hpp"
 
-bool argCheck(const std::string &argument) {
-	std::string fileTyp = ".csv";
-	bool valid = false;
-	size_t check = 0;
+// bool dataCheck(const std::string &argument) {
+// 	std::string fileTyp = ".csv";
+// 	bool valid = false;
+// 	size_t check = 0;
 
-	check = argument.rfind(fileTyp);
-	if( check != std::string::npos) {
-		valid = true;
-		if( valid == true && argument.size() != check+4) {
-			std::cout << "nope" << std::endl;
-			valid = false;
-		}
-	}
-	//// ALTERNATE-METHOD ////
-	// if (argument.size() < fileTyp.size())
-    //     return false;
-
-    // // Valid if the string ends with ".csv"
-    // return argument.compare(argument.size() - fileTyp.size(), fileTyp.size(), fileTyp) == 0;
-	return valid;
-}
+// 	check = argument.rfind(fileTyp);
+// 	if( check != std::string::npos) {
+// 		valid = true;
+// 		if( valid == true && argument.size() != check+4) {
+// 			std::cout << "nope" << std::endl;
+// 			valid = false;
+// 		}
+// 	}
+// 	return valid;
+// }
 
 int main (int argc, char **argv) {
 	if(argc != 2) {
 		std::cout << "Invalid argument count!" << std::endl;
 		return(1);
 	}
-	if(!argCheck(argv[1])) {
-		std::cout << "Invalid argument typ!" << std::endl;
-		return(1);
+	std::string fileName = argv[1];
+	try {
+		BitcoinExchange btcE;
+		btcE.exchanger(fileName);
 	}
-	//file opening
-	std::ifstream givenFile(argv[1]);
-	if(!givenFile.is_open())
-		throw std::runtime_error("Could not open the given File!\n");
-	//file opening
-	std::cout << argv[1] << std::endl;
+	catch(std::exception &e) {
+		std::cerr << e.what()<< std::endl;
+	}
 	return (0);
 }

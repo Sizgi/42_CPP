@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-SRC = main.cpp
+SRC = main.cpp BitcoinExchange.cpp
 
 OBJ_DIR = obj
 
