@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 15:01:12 by sizgi             #+#    #+#             */
-/*   Updated: 2026/04/03 14:24:31 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/04/09 15:13:06 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #include <iostream>
 #include <string>
 #include <stack>
+#include <sstream>
+#include <list>
 
 class RPN {
 	public:
@@ -24,5 +26,7 @@ class RPN {
 		RPN(const RPN &copyThis);
 		RPN &operator=(const RPN &copyThis);
 		std::string userInput;
+		std::stack<char, std::list<char>> myStack;
+		char myOperator;
 };
 
