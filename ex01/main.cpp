@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 13:58:16 by sizgi             #+#    #+#             */
-/*   Updated: 2026/04/03 14:31:26 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/04/12 15:44:08 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,16 @@
 int main(int argc, char **argv) {
 	if(argc != 2) {
 		std::cerr << "Invalid argument count!" << std::endl;
+		return 1;
 	}
 	std::string temp = argv[1];
 	RPN start;
-	start.startFunction(temp);
+	try{
+		start.startFunction(temp);
+	}
+	catch(std::exception &e) {
+		std::cerr << e.what() << std::endl;
+		return 1;
+	}
+	return 0;
 }

@@ -19,7 +19,7 @@ OBJ = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 
 DEPS = $(OBJ:.o=.d)
 
-NAME = ex02
+NAME = PmergeMe
 
 CXXFLAGS = -Wall -Werror -Wextra -std=c++98 -MMD -MP -g # -fsanitize=undefined -pedantic -Wno-newline-eof
 CXX = c++
