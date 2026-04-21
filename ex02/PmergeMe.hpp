@@ -1,39 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RPN.hpp                                            :+:      :+:    :+:   */
+/*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/31 15:01:12 by sizgi             #+#    #+#             */
-/*   Updated: 2026/04/12 17:27:49 by sizgi            ###   ########.fr       */
+/*   Created: 2026/04/21 14:57:34 by sizgi             #+#    #+#             */
+/*   Updated: 2026/04/21 18:40:20 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 
-#ifndef RPN_HPP
-#define RPN_HPP
+#include<iostream>
+#include<sstream>
+#include<string>
+#include<vector>
+#include<deque>
+#include<algorithm>
+#include <cmath>
 
-// #pragma once
-
-#include <iostream>
-#include <string>
-#include <stack>
-#include <sstream>
-#include <list>
-#include <list>
-#include "RPN.hpp"
-
-class RPN {
+class PmergeMe {
 	public:
-		RPN();
-		~RPN();
-		void startFunction(const std::string &input);
+		PmergeMe();
+		~PmergeMe();
+		void mergerFunc(std::string givenStr);
 	private:
-		RPN(const RPN &copyThis);
-		RPN &operator=(const RPN &copyThis);
-		void sumFunc(const char myOperator);
-		std::stack<double, std::list<double> > myStack;
+		PmergeMe(const PmergeMe &copyThis);
+		PmergeMe &operator=(const PmergeMe &copyThis);
+		std::vector<int> myVector;
+		size_t vectorSize;
 };
-
-#endif

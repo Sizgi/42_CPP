@@ -6,10 +6,11 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 15:01:09 by sizgi             #+#    #+#             */
-/*   Updated: 2026/04/12 15:56:24 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/04/12 17:28:18 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "RPN.hpp"
 #include "RPN.hpp"
 
 RPN::RPN() {}
@@ -22,7 +23,7 @@ RPN &RPN::operator=(const RPN &) {
 	return *this;
 }
 
-void RPN::sumFunc(const char &myOperator) {
+void RPN::sumFunc(const char myOperator) {
 	double temp = 0;
 	temp = myStack.top();
 	myStack.pop();
