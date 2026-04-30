@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 14:57:25 by sizgi             #+#    #+#             */
-/*   Updated: 2026/04/29 18:23:32 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/04/30 16:35:57 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,26 +30,34 @@ PmergeMe &PmergeMe::operator=(const PmergeMe &) {
 
 // Insert each pend element into main using binary search, in Jacobsthal order, respecting the upper bound from the paired ax
 
+void PmergeMe::myInsertFunc2()	{
+	binary_search(myVector.begin(), myVector.end(), groupSize);
+	
+}
+
 void PmergeMe::myInsertFunc(int counter) {
 	groupSize = 1 << counter;
 	size_t pairCount = vectorSize/(groupSize*2);
 	
-	if(pairCount == 0 || pairCount == 1)
-	{
+	if(pairCount == 0 || pairCount == 1) {
 		std::cout << "groupSize: " << groupSize << ", ";
 		std::cout << "pairCount: " << pairCount << std::endl;
 		return;
 	}
-	
 	bool unEven = false;
+	
 	if(vectorSize%(groupSize*2) >= groupSize)
 		unEven = true;
-	std::cout << "groupSize: " << groupSize << ", ";
-	std::cout << "pairCount: " << pairCount << std::endl;
+	///printing out to see//
+	std::cout << "groupSize: " << groupSize << ", " << "pairCount: " << pairCount << std::endl;
 	for(std::vector<Numberdata>::iterator it = myVector.begin(); it != myVector.end(); it++) {
 		std::cout << it->numVal << " ";
 	}
 	std::cout << std::endl;
+	///printing out to see//
+	
+
+	//where i name the groups
 	for(size_t i = 0; i < pairCount; i++) {
 		size_t	ax = (i*groupSize*2)+(groupSize*2)-1;
 		size_t	bx = (i*groupSize*2)+groupSize-1;
@@ -59,18 +67,18 @@ void PmergeMe::myInsertFunc(int counter) {
 		
 		myVector[bx].groupType = 'b';
 		myVector[bx].groupCount = i+1;
-		myVector[bx].pairedNum = &myVector[ax].numVal;
-		std::cout << "im: " << myVector[bx].numVal << ", my pairVal: " << *myVector[bx].pairedNum << std::endl;
+		myVector[bx].pairedNum = myVector[ax].numVal;
+		std::cout << "im: " << myVector[bx].numVal << ", my pairVal: " << myVector[bx].pairedNum << std::endl;
 		if(unEven && i == pairCount-1) {
 			size_t	unEvenBx = (pairCount*groupSize*2)+groupSize-1;
 			myVector[unEvenBx].groupType = 'b';
 			myVector[unEvenBx].groupCount = i+1;
-			std::cout << "im: " << myVector[unEvenBx].numVal << ", my pairVal: yok" << std::endl;
+			myVector[bx].pairedNum = -1;
+			std::cout << "im: " << myVector[unEvenBx].numVal << ", my pairVal: " << myVector[unEvenBx].pairedNum << std::endl;
 		}
 	}
-	
 
-	
+
 	//std::lower_bound or std::upper_bound in STL
 }
 
@@ -87,11 +95,13 @@ void PmergeMe::myRecFunc(size_t counter) {
 			}
 		}
 	}
+
+	//print out to see
 	for(std::vector<Numberdata>::iterator it = myVector.begin(); it != myVector.end(); it++) {
 		std::cout << it->numVal << " ";
 	}
-	
 	std::cout << std::endl;
+	//print out to see
 	counter++;
 	if(counter < myPowerOfTwo)
 		myRecFunc(counter);

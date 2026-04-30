@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 14:57:34 by sizgi             #+#    #+#             */
-/*   Updated: 2026/04/29 17:35:51 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/04/30 16:34:37 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,11 @@
 struct Numberdata {
 	int numVal;
 	Numberdata *pairAdress;
-	int *pairedNum;
+	int pairedNum;
 	char groupType;
 	int groupCount;
 
-	Numberdata(): numVal(0), pairedNum(NULL), groupType('-'), groupCount(0) {}
+	Numberdata(): numVal(0), pairedNum(0), groupType('-'), groupCount(0) {}
 };
 
 class PmergeMe {
@@ -58,6 +58,7 @@ class PmergeMe {
 		std::vector<Numberdata> myVector;
 		void myRecFunc(size_t counter);
 		void myInsertFunc(int counter);
+		void PmergeMe::myInsertFunc2();
 		size_t vectorSize;
 		size_t myPowerOfTwo;
 		size_t nonGroupStart;
