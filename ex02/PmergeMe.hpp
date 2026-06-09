@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 14:57:34 by sizgi             #+#    #+#             */
-/*   Updated: 2026/05/20 14:19:13 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/06/09 19:25:16 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,9 @@
 #define RESET	"\033[0m"
 #define BOLD  "\e[1m"
 
+#ifndef VISUAL
+#define VISUAL false
+#endif
 
 struct Numberdata {
 	int numVal;

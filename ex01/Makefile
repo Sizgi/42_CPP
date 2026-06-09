@@ -21,7 +21,7 @@ DEPS = $(OBJ:.o=.d)
 
 NAME = RPN
 
-CXXFLAGS = -Wall -Werror -Wextra -std=c++98 -MMD -MP -g #-fsanitize=undefined,address -pedantic -Wno-newline-eof
+CXXFLAGS = -Wall -Werror -Wextra -std=c++98 -MMD -MP #-g -fsanitize=undefined,address -pedantic -Wno-newline-eof
 CXX = c++
 
 RM = rm -rf

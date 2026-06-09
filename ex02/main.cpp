@@ -6,11 +6,24 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 14:41:47 by sizgi             #+#    #+#             */
-/*   Updated: 2026/05/20 14:01:22 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/06/09 19:53:58 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
+
+#include <cmath>
+std::size_t fordJohnsonWorstCase(const std::size_t n)
+{
+	std::size_t total = 0;
+
+	for (std::size_t k = 1; k <= n; k++)
+	{
+		total += std::ceil(log2((3.0 / 4.0) * k));
+	}
+	std::cout <<"LIMIT: "<< total << std::endl; 
+	return (total);
+}
 
 int main(int argc, char** argv) {
 	PmergeMe *yeni = new PmergeMe();
@@ -48,7 +61,7 @@ int main(int argc, char** argv) {
     std::cout << std::fixed << std::setprecision(5);
     std::cout << BOLD << CYAN << "Time to process a range of " << yeni->getSize() 
 				<< " elements with std::deque : " << duration << " us" << RESET << std::endl;
-
+	fordJohnsonWorstCase(100);
 	delete yeni;
 	return 0;
 }

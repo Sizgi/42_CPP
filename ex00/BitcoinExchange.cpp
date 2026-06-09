@@ -6,48 +6,22 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/22 13:59:35 by sizgi             #+#    #+#             */
-/*   Updated: 2026/04/04 17:50:05 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/06/09 19:06:06 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
-BitcoinExchange::BitcoinExchange() {
-	std::string line;
-	bool firstLine = true;
-	double value = 0.00;
-	std::ifstream subjectFile("data.csv");
-	if(!subjectFile.is_open())
-		throw std::runtime_error("Could not open the data File!\n");
-		
-	while(getline(subjectFile, line)) {
-		if (line.empty())
-			continue;
-		if(firstLine){
-			firstLine = false;
-			continue;
-		}
-		size_t tempPos = line.find(',');
-		std::string date = line.substr(0, tempPos);
-		std::string dateValue = line.substr(tempPos+1);
-		std::istringstream iss(dateValue);
-		iss >> value;
-		myMap[date] = value;
+static std::string  toLowerFunction(std::string &str) {
+	size_t size = str.size();
+	std::string temp = str;
+	for(size_t s = 0; s < size; s++) {
+		temp[s] = std::tolower((static_cast<unsigned int>(str[s])));
 	}
-	// for(std::map<std::string, double>::iterator i = myMap.begin(); i != myMap.end(); i++) {
-	// 	std::cout << i->first << " => " << i->second << std::endl;
-	// }
+	return temp;
 }
 
-BitcoinExchange::~BitcoinExchange() {}
-
-BitcoinExchange::BitcoinExchange(const BitcoinExchange &) {}
-
-BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &) {
-	return *this;
-}
-
-bool isLeapYear(int year) {
+static bool isLeapYear(int year) {
 	return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
 }
 
@@ -58,7 +32,7 @@ int maxDaysInMonth(int month, int year) {
 	return (days[month - 1]);
 }
 
-bool dateCheck(std::string date) {
+static bool dateCheck(std::string date) {
 	int day = std::atoi((date.substr(8, 2)).c_str());
 	int month = std::atoi((date.substr(5, 2)).c_str());
 	int year = std::atoi((date.substr(0, 4)).c_str());
@@ -72,7 +46,7 @@ bool dateCheck(std::string date) {
 	return true;
 }
 
-bool	formatCheck(const std::string &date) {
+static bool	formatCheck(const std::string &date) {
 	for(int i = 0; i < 10; ++i) {
 		if(i == 4 || i == 7) {
 			if(date[i] != '-')
@@ -86,15 +60,56 @@ bool	formatCheck(const std::string &date) {
 	return true;
 }
 
-/////ARTIK YIL KURALLARI
-// Artık yıl hesabı görünürden biraz daha karmaşık:
-// 4'e bölünebiliyorsa → artık yıl
-// Ama 100'e de bölünebiliyorsa → artık yıl değil
-// Ama 400'e de bölünebiliyorsa → yine artık yıl
-// Bu yüzden 1900 artık yıl değilken 2000 artık yıldır.
-/////ARTIK YIL KURALLARI
+BitcoinExchange::BitcoinExchange() {
+	std::string line;
+	bool anyLine = false;
+	bool firstLine = true;
+	double value = 0.00;
+	size_t pos = 0;
+	std::string tempStr;
+	std::ifstream subjectFile("data.csv");
+	
+	if(!subjectFile.is_open())
+		throw std::runtime_error("Error: Could not open the data File!");
+	while(getline(subjectFile, line)) {
+		if (line.empty())
+			continue;
+		if(firstLine) {
+			//date,exchange_rate
+			tempStr = toLowerFunction(line);
+			pos = tempStr.find("date");
+			if(pos == std::string::npos)
+				throw std::invalid_argument("Error: Wrong format in data file, valid format: \"date,exchange_rate\"");
+			if(tempStr.substr(pos, 18) != "date,exchange_rate")
+				throw std::invalid_argument("Error: Wrong format in data file, valid format: \"date,exchange_rate\"");
+			firstLine = false;
+			continue;
+		}
+		anyLine = true;
+		tempStr = line.substr(0, 10);
+		if(!formatCheck(tempStr))
+			throw std::invalid_argument("Error: Wrong format in data file(date)");
+		if((pos = line.find(',')) == std::string::npos)
+			throw std::invalid_argument("Error: Wrong format in data file(seperator\",\")");
+		std::string date = line.substr(0, pos);
+		std::string dateValue = line.substr(pos+1);
+		std::istringstream iss(dateValue);
+		iss >> value;
+		myMap[date] = value;
+	}
+	if(!anyLine)
+		throw std::invalid_argument("Error: Empty data file.");
+}
 
-void	BitcoinExchange::valueCalculation(std::string line) {
+BitcoinExchange::~BitcoinExchange() {}
+
+BitcoinExchange::BitcoinExchange(const BitcoinExchange &) {}
+
+BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &) {
+	return *this;
+}
+
+void BitcoinExchange::valueCalculation(std::string line) {
 	std::map<std::string,double>::iterator it;
 	std::map<std::string,double>::iterator itCheck;
 	size_t delPos = 0;
@@ -116,9 +131,8 @@ void	BitcoinExchange::valueCalculation(std::string line) {
 	}
 	it = myMap.lower_bound(line.substr(0, 10));
 	// itCheck = myMap.find(line.substr(0,10));
-	if((it == myMap.end()) || (it->first != line.substr(0, 10)/*  && it != myMap.begin() */))
+	if((it == myMap.end()) || (it->first != line.substr(0, 10)))/*  && it != myMap.begin() */
 		it--;
-	//////////////////NEEDS LOWER BOUND CHECK AND END CHECK!/////////////////////////////////
 	result = (it->second * value);
 	std::cout << std::setw(20);
 	std::cout << std::left;
@@ -133,14 +147,22 @@ void	BitcoinExchange::valueCalculation(std::string line) {
 void BitcoinExchange::exchanger(const std::string &file) {
 	std::string line;
 	bool firstLine = true;
+	std::string tempStr;
+	size_t pos = 0;
 	
 	std::ifstream givenFile(file.c_str());
 	if(!givenFile.is_open())
-		throw std::runtime_error("Could not open the data File!\n");
+		throw std::runtime_error("Error: Could not open the data File!");
 	while(getline(givenFile, line)) {
 		if (line.empty())
 			continue;
-		if(firstLine){
+		if(firstLine) {
+			tempStr = toLowerFunction(line);
+			pos = tempStr.find("date");
+			if(pos == std::string::npos)
+				throw std::invalid_argument("Error: Wrong format!, valid format: \"date | value\"");
+			if(tempStr.substr(pos, 12) != "date | value")
+				throw std::invalid_argument("Error: Wrong format!, valid format: \"date | value\"");
 			firstLine = false;
 			continue;
 		}
@@ -157,9 +179,8 @@ void BitcoinExchange::exchanger(const std::string &file) {
 		if(line[10] != ' ' || line[11] != '|' || line[12] != ' ') {
 			std::cout <<RED<< "Error" <<RESET<<": Bad input => " << line << std::endl;
 			continue;
-		}	
+		}
 		valueCalculation(line);
-		// std::istringstream iss(dateValue);
 	}
 }
 

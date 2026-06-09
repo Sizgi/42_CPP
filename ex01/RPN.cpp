@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 15:01:09 by sizgi             #+#    #+#             */
-/*   Updated: 2026/04/12 17:28:18 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/06/09 19:18:26 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ RPN &RPN::operator=(const RPN &) {
 
 void RPN::sumFunc(const char myOperator) {
 	double temp = 0;
+	
 	temp = myStack.top();
 	myStack.pop();
 	if(myOperator == '+')

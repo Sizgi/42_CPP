@@ -21,7 +21,7 @@ DEPS = $(OBJ:.o=.d)
 
 NAME = PmergeMe
 
-CXXFLAGS = -Wall -Werror -Wextra -std=c++98 -MMD -MP -g # -fsanitize=undefined -pedantic -Wno-newline-eof
+CXXFLAGS = -Wall -Werror -Wextra -std=c++98 -MMD -MP #-g -fsanitize=undefined -pedantic -Wno-newline-eof
 CXX = c++
 
 RM = rm -rf
@@ -35,6 +35,9 @@ $(OBJ_DIR)/%.o: %.cpp
 		$(CXX) $(CXXFLAGS) -c $< -o $@
 
 -include $(DEPS)
+
+visual: CXXFLAGS += -DVISUAL=true
+visual: re
 
 clean:
 		$(RM) $(OBJ) $(DEPS) $(OBJ_DIR)

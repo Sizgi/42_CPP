@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 14:57:25 by sizgi             #+#    #+#             */
-/*   Updated: 2026/05/20 14:22:07 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/06/09 19:59:41 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ int PmergeMe::getSize() const {
 }
 
 void PmergeMe::getCompCount() const {
-	// std::cout << GREEN << "Comparisons: " << compareCount << RESET <<std::endl;
-	std::cout << "Comparisons: " << compareCount <<std::endl;
+	std::cout << GREEN << "Comparisons: " << compareCount << RESET <<std::endl;
+	// std::cout << "Comparisons: " << compareCount <<std::endl;
 }
 
 int PmergeMe::JacobS(int givenNumber) {
@@ -45,7 +45,7 @@ void PmergeMe::VectorPrintOutFunc(bool bA, std::string givenStr) {
 		std::istringstream iss(givenStr);
 		Numberdata temp;
 		while(iss >> temp.numVal) {
-			temp.id = myVector.size(); //id added
+			temp.id = myVector.size();
 			myVector.push_back(temp);
 		}
 		vectorSize = myVector.size();
@@ -77,17 +77,17 @@ void PmergeMe::DequePrintOutFunc(bool bA, std::string givenStr) {
 			myDeque.push_back(temp);
 		}
 		vectorSize = myDeque.size();
-	std::cout << BOLD << RED << "Before: " << RESET;
+	// std::cout << BOLD << RED << "Before: " << RESET; //if you want print out seperately
 	}
 	else {
-		std::cout << BOLD << GREEN << "After: " << RESET;
+		// std::cout << BOLD << GREEN << "After: " << RESET; //if you want print out seperately
 		deqSortChecker(myDeque);
 	}
 	
-	for(std::deque<Numberdata>::iterator it = myDeque.begin(); it != myDeque.end(); it++) {
-		std::cout << it->numVal << " ";
-	}
-	std::cout <<"\n"<< std::endl;
+	// for(std::deque<Numberdata>::iterator it = myDeque.begin(); it != myDeque.end(); it++) { //if you want print out seperately
+	// 	std::cout << it->numVal << " ";
+	// }
+	// std::cout <<"\n"<< std::endl;
 }
 
 void PmergeMe::mergerDequeFunc() {
@@ -105,7 +105,7 @@ void PmergeMe::vecSortChecker(std::vector<Numberdata> &cont) {
 			return;
 		}
 	}
-	std::cout << BOLD << GREEN << "PERFECT!!" << RESET <<std::endl;
+	// std::cout << BOLD << GREEN << "PERFECT!!" << RESET <<std::endl; //if you want print out
 }
 
 void PmergeMe::deqSortChecker(std::deque<Numberdata> &cont) {
@@ -115,6 +115,6 @@ void PmergeMe::deqSortChecker(std::deque<Numberdata> &cont) {
 			return;
 		}
 	}
-	std::cout << BOLD << GREEN << "PERFECT!!" << RESET <<std::endl;
+	// std::cout << BOLD << GREEN << "PERFECT!!" << RESET <<std::endl; //if you want print out
 }
 
