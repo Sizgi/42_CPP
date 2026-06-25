@@ -36,9 +36,6 @@ $(OBJ_DIR)/%.o: %.cpp
 
 -include $(DEPS)
 
-visual: CXXFLAGS += -DVISUAL=true
-visual: re
-
 clean:
 		$(RM) $(OBJ) $(DEPS) $(OBJ_DIR)
 fclean: clean

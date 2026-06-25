@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 14:57:25 by sizgi             #+#    #+#             */
-/*   Updated: 2026/06/09 19:59:41 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/06/10 14:27:36 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ int PmergeMe::getSize() const {
 
 void PmergeMe::getCompCount() const {
 	std::cout << GREEN << "Comparisons: " << compareCount << RESET <<std::endl;
-	// std::cout << "Comparisons: " << compareCount <<std::endl;
 }
 
 int PmergeMe::JacobS(int givenNumber) {
@@ -45,20 +44,24 @@ void PmergeMe::VectorPrintOutFunc(bool bA, std::string givenStr) {
 		std::istringstream iss(givenStr);
 		Numberdata temp;
 		while(iss >> temp.numVal) {
+			if(temp.numVal < 0)
+				throw(std::invalid_argument("Error: negative numbers are not valid"));
 			temp.id = myVector.size();
 			myVector.push_back(temp);
 		}
+		if (iss.fail() && !iss.eof())
+		    throw std::invalid_argument("Error: Invalid value");
 		vectorSize = myVector.size();
 		std::cout << BOLD << RED << "Before: " << RESET;
 	}
 	else {
 		std::cout << BOLD << GREEN << "After: " << RESET;
-		vecSortChecker(myVector);
+		// vecSortChecker(myVector);
 	}
 	for(std::vector<Numberdata>::iterator it = myVector.begin(); it != myVector.end(); it++) {
 		std::cout << it->numVal << " ";
 	}
-	std::cout <<"\n"<< std::endl;
+	std::cout << std::endl;
 }
 
 void PmergeMe::mergerVectorFunc() {
@@ -73,6 +76,8 @@ void PmergeMe::DequePrintOutFunc(bool bA, std::string givenStr) {
 		Numberdata temp;
 		compareCount = 0;
 		while(iss >> temp.numVal) {
+			if(temp.numVal < 0)
+				throw(std::invalid_argument("Error: negative numbers are not acceptable"));
 			temp.id = myDeque.size(); //id added
 			myDeque.push_back(temp);
 		}
@@ -80,10 +85,9 @@ void PmergeMe::DequePrintOutFunc(bool bA, std::string givenStr) {
 	// std::cout << BOLD << RED << "Before: " << RESET; //if you want print out seperately
 	}
 	else {
-		// std::cout << BOLD << GREEN << "After: " << RESET; //if you want print out seperately
-		deqSortChecker(myDeque);
-	}
-	
+		std::cout << BOLD << GREEN << "After: " << RESET; //if you want print out seperately
+		// deqSortChecker(myDeque);
+	 }
 	// for(std::deque<Numberdata>::iterator it = myDeque.begin(); it != myDeque.end(); it++) { //if you want print out seperately
 	// 	std::cout << it->numVal << " ";
 	// }
@@ -98,23 +102,23 @@ void PmergeMe::mergerDequeFunc() {
 	myRecFunc(myDeque, reLevel);
 }
 
-void PmergeMe::vecSortChecker(std::vector<Numberdata> &cont) {
-	for(int i = 0; i < (int)cont.size(); i++) {
-		if((i+1) < (int)cont.size() && cont[i].numVal > cont[i+1].numVal) {
-			std::cout << BOLD << RED << "NOT SORTED!!" << RESET <<std::endl;
-			return;
-		}
-	}
-	// std::cout << BOLD << GREEN << "PERFECT!!" << RESET <<std::endl; //if you want print out
-}
+// void PmergeMe::vecSortChecker(std::vector<Numberdata> &cont) {
+// 	for(int i = 0; i < (int)cont.size(); i++) {
+// 		if((i+1) < (int)cont.size() && cont[i].numVal > cont[i+1].numVal) {
+// 			std::cout << BOLD << RED << "NOT SORTED!!" << RESET <<std::endl;
+// 			return;
+// 		}
+// 	}
+// 	std::cout << BOLD << GREEN << "PERFECT!!" << RESET <<std::endl; //if you want print out
+// }
 
-void PmergeMe::deqSortChecker(std::deque<Numberdata> &cont) {
-	for(int i = 0; i < (int)cont.size(); i++) {
-		if((i+1) < (int)cont.size() && cont[i].numVal > cont[i+1].numVal) {
-			std::cout << BOLD << RED << "NOT SORTED!!" << RESET <<std::endl;
-			return;
-		}
-	}
+// void PmergeMe::deqSortChecker(std::deque<Numberdata> &cont) {
+// 	for(int i = 0; i < (int)cont.size(); i++) {
+// 		if((i+1) < (int)cont.size() && cont[i].numVal > cont[i+1].numVal) {
+// 			std::cout << BOLD << RED << "NOT SORTED!!" << RESET <<std::endl;
+// 			return;
+// 		}
+// 	}
 	// std::cout << BOLD << GREEN << "PERFECT!!" << RESET <<std::endl; //if you want print out
-}
+// }
 

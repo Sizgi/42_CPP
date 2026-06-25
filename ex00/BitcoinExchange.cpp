@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/22 13:59:35 by sizgi             #+#    #+#             */
-/*   Updated: 2026/06/09 19:06:06 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/06/10 13:30:44 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static bool	formatCheck(const std::string &date) {
 			if(date[i] != '-')
 				return false;
 		}
-		else if(!std::isdigit(date[i]))
+		else if(!std::isdigit(static_cast<unsigned char>(date[i])))
 			return false;
 	}
 	if(!dateCheck(date))
@@ -75,7 +75,6 @@ BitcoinExchange::BitcoinExchange() {
 		if (line.empty())
 			continue;
 		if(firstLine) {
-			//date,exchange_rate
 			tempStr = toLowerFunction(line);
 			pos = tempStr.find("date");
 			if(pos == std::string::npos)
@@ -95,6 +94,10 @@ BitcoinExchange::BitcoinExchange() {
 		std::string dateValue = line.substr(pos+1);
 		std::istringstream iss(dateValue);
 		iss >> value;
+		if (iss.fail())
+		    throw std::invalid_argument("Error: Invalid value in data file");
+		if (!iss.eof())
+		    throw std::invalid_argument("Error: Trailing characters after value in data file");
 		myMap[date] = value;
 	}
 	if(!anyLine)
@@ -114,17 +117,33 @@ void BitcoinExchange::valueCalculation(std::string line) {
 	std::map<std::string,double>::iterator itCheck;
 	size_t delPos = 0;
 	double result = 0.00;
+	double value = 0.00;
 	
 	delPos = line.find_first_of("-0123456789", 10);
-	if(delPos ==std::string::npos) {
+	std::string tempLine = line.substr(12);
+	std::istringstream iss(tempLine);
+	iss >> value;
+	if (iss.fail()) {
+		std::cout <<RED<< "Error" <<RESET<<": Invalid value in given file => " << line << std::endl;
+		return;
+	}
+	
+	if (!iss.eof()) {
+		std::cout <<RED<< "Error" <<RESET<<": Trailing characters after value => " << line << std::endl;
+		return;
+	}
+	
+	if(delPos == std::string::npos) {
 		std::cout <<RED<< "Error" <<RESET<<": Bad input => " << line << std::endl;
 		return;
 	}
-	double value = std::atof((line.substr(delPos)).c_str());
+	
+	value = std::atof((line.substr(delPos)).c_str());
 	if(value > 1000.00) {
 		std::cout <<RED<< "Error" <<RESET<<": amount of bitcoin is too big => " << line << std::endl;
 		return;
 	}
+	
 	else if(value < 0.00) {
 		std::cout <<RED<< "Error" <<RESET<<": need positive number of bitcoin! => " << line << std::endl;
 		return;
@@ -171,6 +190,7 @@ void BitcoinExchange::exchanger(const std::string &file) {
 			std::cout <<RED<< "Error" <<RESET<<": Bad input => " << line << std::endl;
 			continue;
 		}
+		
 		if(date < myMap.begin()->first) {
 			std::cout <<RED<< "Error" <<RESET<<": Bad input => " << line << std::endl;
 			continue;
@@ -183,6 +203,3 @@ void BitcoinExchange::exchanger(const std::string &file) {
 		valueCalculation(line);
 	}
 }
-
-
-

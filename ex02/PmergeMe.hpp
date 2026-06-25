@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 14:57:34 by sizgi             #+#    #+#             */
-/*   Updated: 2026/06/09 19:25:16 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/06/10 14:30:04 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,6 @@
 #define RESET	"\033[0m"
 #define BOLD  "\e[1m"
 
-#ifndef VISUAL
-#define VISUAL false
-#endif
-
 struct Numberdata {
 	int numVal;
 	int level;
@@ -68,8 +64,8 @@ class PmergeMe {
 		void DequePrintOutFunc(bool bA, std::string givenStr);
 		int getSize() const;
 		void getCompCount() const;
-		void vecSortChecker(std::vector<Numberdata> &cont);
-		void deqSortChecker(std::deque<Numberdata> &cont);
+		// void vecSortChecker(std::vector<Numberdata> &cont);
+		// void deqSortChecker(std::deque<Numberdata> &cont);
 	private:
 		PmergeMe(const PmergeMe &copyThis);
 		PmergeMe &operator=(const PmergeMe &copyThis);
@@ -81,6 +77,7 @@ class PmergeMe {
 		int compareCount;
 		int alreadyDone;
 		int JacobS(int givenNumber);
+		
 		template <typename Container>
 		void myRecFunc(Container &cont, int reLevel) {
 			int tempCount = 0;
@@ -114,6 +111,7 @@ class PmergeMe {
 			reLevel--;
 			myInsertFunc(cont, reLevel);
 		}
+		
 		template <typename Container>
 		void pendSort(Container &cont, int elementCount, int levelS) {
 			std::vector<PendElements> pend;
@@ -150,6 +148,7 @@ class PmergeMe {
         	    cont[levelS + i] = pend[i].data;
         	}
 		}
+		
 		template <typename Container>
 		void myInsertFunc(Container &cont, int reLevel) {
 			int save = 0;
@@ -187,15 +186,16 @@ class PmergeMe {
 					alreadyDone = save;
 			}
 		}
+		
 		template <typename Container>
 		int levelStart(Container &cont, int reLevel)  {
 			for(int i = 0; i < (int)cont.size(); ++i) {
 				if(cont[i].level == reLevel)
 					return i;
 			}
-			//Error
 			return -1;
 		}
+		
 		template <typename Container>
 		int InsertCount(Container &cont, int reLevel) {
     		int count = 0;
@@ -207,6 +207,7 @@ class PmergeMe {
     		}
     		return count;
 		}
+		
 		template <typename Container>
 		int	InsertPointFinder(Container &cont, int groupLeader) { //add deque condition 1 for vector 2 for deque?
 			int low = 0;
@@ -238,7 +239,6 @@ class PmergeMe {
 			}
 			// std::cout <<GREEN<< cont[groupLeader].numVal <<RESET <<std::endl; 
 			// std::cout << RED << tempCount << RESET<< std::endl;
-			//1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21
 			return low;
 		}
 };
