@@ -6,7 +6,7 @@
 #    By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/05 13:52:30 by sizgi             #+#    #+#              #
-#    Updated: 2026/03/10 11:56:41 by sizgi            ###   ########.fr        #
+#    Updated: 2026/05/27 14:38:45 by sizgi            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ OBJ = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 
 DEPS = $(OBJ:.o=.d)
 
-NAME = ex02
+NAME = Array
 
 CXXFLAGS = -Wall -Werror -Wextra -std=c++98 -MMD -MP #-g -fsanitize=undefined -pedantic -Wno-newline-eof
 CXX = c++

@@ -6,11 +6,11 @@
 #    By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/05 13:52:30 by sizgi             #+#    #+#              #
-#    Updated: 2026/03/10 11:56:50 by sizgi            ###   ########.fr        #
+#    Updated: 2026/05/27 14:39:34 by sizgi            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = main.cpp #TempClass.cpp
+SRC = main.cpp
 
 OBJ_DIR = obj
 
