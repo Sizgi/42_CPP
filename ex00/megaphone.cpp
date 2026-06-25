@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 17:25:19 by sizgi             #+#    #+#             */
-/*   Updated: 2025/10/23 17:48:08 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/01/14 13:28:38 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "megaphone.hpp"
+#include <iostream>
 
-void MegaPhone::str_func(std::string str)
+void str_func(std::string str)
 {
 	char c;
-	
 
 	for(size_t i = 0; i < str.length(); i++)
 	{
@@ -28,7 +27,7 @@ void MegaPhone::str_func(std::string str)
 int main(int argc, char **argv)
 {
 	int i = 1;
-	MegaPhone word;
+	std::string word;
 
 	if(argc < 2)
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
@@ -36,8 +35,8 @@ int main(int argc, char **argv)
 	{
 		for(i = 1; i <= (argc - 1); i++)
 		{
-			word.str = argv[i];
-			word.str_func(word.str);
+			word = argv[i];
+			str_func(word);
 		}
 		std::cout << std::endl;
 	}

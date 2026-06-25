@@ -6,11 +6,11 @@
 #    By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/10 16:46:47 by sizgi             #+#    #+#              #
-#    Updated: 2025/10/21 18:24:23 by sizgi            ###   ########.fr        #
+#    Updated: 2026/01/14 14:03:37 by sizgi            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = main.cpp
+SRC = megaphone.cpp
 
 OBJ_DIR = obj
 
@@ -20,8 +20,8 @@ DEPS = $(OBJ:.o=.d)
 
 NAME = megaphone
 
-CPPFLAGS = -Wall -Werror -Wextra -std=c++98
-CXX = g++
+CPPFLAGS = -Wall -Werror -Wextra -std=c++98 -MMD -MP #-g -fsanitize=undefined -pedantic -Wno-newline-eof
+CXX = c++
 
 RM = rm -rf
 
@@ -35,10 +35,13 @@ $(OBJ_DIR)/%.o: %.cpp
 
 -include $(DEPS)
 
+run: all
+	./$(NAME)
 clean:
 		$(RM) $(OBJ) $(DEPS) $(OBJ_DIR)
 fclean: clean
 		$(RM) $(DEPS) $(NAME) $(OBJ_DIR)
 
 re: fclean all
-		
+
+.PHONY: all clean fclean run
