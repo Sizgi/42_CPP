@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 14:31:34 by sizgi             #+#    #+#             */
-/*   Updated: 2026/01/24 16:22:06 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/01/24 16:21:49 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 ScavTrap::ScavTrap(void) : ClapTrap()
 {
+	name = "Tuzak";
 	Attack_damage = 20;
 	Energy_points = 50;
 	Hit_points = 100;

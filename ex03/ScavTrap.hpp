@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 14:31:34 by sizgi             #+#    #+#             */
-/*   Updated: 2025/12/17 19:13:15 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/01/24 14:18:37 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,6 @@ class ScavTrap : public virtual ClapTrap
 		void guardGate(void);
 		void attack(const std::string &target);
 	protected:
-		// int			Energy_points;
 };
 
 #endif
-
-
-/*
-	Orthodox Canonical Form:
-		- default constructor,
-		- parameterized constructor
-		- copy constructor
-		- copy assignment operator
-		- destructor
-*/

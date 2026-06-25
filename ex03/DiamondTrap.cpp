@@ -6,31 +6,31 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 16:04:05 by sizgi             #+#    #+#             */
-/*   Updated: 2025/12/17 20:23:28 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/01/24 15:03:46 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap(void) : ClapTrap("_clap_def")
+DiamondTrap::DiamondTrap(void) : ClapTrap("def_clap_name")
 {
 	name = "def";
 	Hit_points = 100;
 	Energy_points = 50;
 	Attack_damage = 30;
-	std::cout << "DiamondTrap constructer constructed " << name << ".\n";
+	std::cout << "DiamondTrap constructor constructed " << name << ".\n";
 }
 DiamondTrap::~DiamondTrap()
 {
 	std::cout << "DiamondTrap destructer destructed " << name << ".\n";
 }
-DiamondTrap::DiamondTrap(std::string given_name) : ClapTrap("_clap_"+given_name)
+DiamondTrap::DiamondTrap(std::string given_name) : ClapTrap(given_name+"_clap_name")
 {
 	name = given_name;
 	Hit_points = 100;
 	Energy_points = 50;
 	Attack_damage = 30;
-	std::cout << "DiamondTrap parameterized constructer constructed " << given_name << ".\n";
+	std::cout << "DiamondTrap parameterized constructor constructed " << given_name << ".\n";
 }
 DiamondTrap::DiamondTrap(const DiamondTrap &copy_from_this) : ClapTrap(copy_from_this)
 {
@@ -51,10 +51,5 @@ DiamondTrap &DiamondTrap::operator=(const DiamondTrap &copy_from_this)
 
 void DiamondTrap::whoAmI(void)
 {
-	std::cout << ClapTrap::name+"\n" << name+"\n";
+	std::cout << ClapTrap::name+"\n"<< ScavTrap::name+"\n"<< FragTrap::name+"\n" << name+"\n";
 }
-
-// void DiamondTrap::Spec(void)
-// {
-// 	std::cout << Hit_points << "\n" << Energy_points << "\n" << Attack_damage << "\n";
-// }

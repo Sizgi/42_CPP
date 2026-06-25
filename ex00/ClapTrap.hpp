@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 14:31:34 by sizgi             #+#    #+#             */
-/*   Updated: 2025/12/12 19:35:30 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/01/24 13:47:50 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define __CLAPTRAP_HPP__
 
 #include <iostream>
+#include <climits>
 
 class ClapTrap
 {
@@ -29,20 +30,10 @@ class ClapTrap
 		
 	private:
 		std::string	name;
-		int			Hit_point;
+		int			Hit_points;
 		int			Energy_points;
-		int			Attack_points;
+		int			Attack_damage;
 
 };
 
 #endif
-
-
-/*
-	Orthodox Canonical Form:
-		- default constructor,
-		- parameterized constructor
-		- copy constructor
-		- copy assignment operator
-		- destructor
-*/

@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 14:31:34 by sizgi             #+#    #+#             */
-/*   Updated: 2025/12/17 16:53:46 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/01/24 15:02:01 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ FragTrap::FragTrap(void) : ClapTrap()
 	Attack_damage = 30;
 	Energy_points = 100;
 	Hit_points = 100;
-	std::cout << "FragTrap constructer constructed " << name << ".\n";
+	std::cout << "FragTrap constructor constructed " << name << ".\n";
 }
 
 FragTrap::~FragTrap(void)
@@ -30,7 +30,7 @@ FragTrap::FragTrap(std::string given_name) : ClapTrap(given_name)
 	Attack_damage = 30;
 	Energy_points = 100;
 	Hit_points = 100;
-	std::cout << "FragTrap parameterized constructer constructed " << given_name << ".\n";
+	std::cout << "FragTrap parameterized constructor constructed " << given_name << ".\n";
 }
 
 FragTrap::FragTrap(const FragTrap &copy_from_this) : ClapTrap(copy_from_this)
@@ -56,7 +56,7 @@ void FragTrap::highFive(int i)
 	std::string user_option;
 	if(i == 0)
 	{
-		std::cout << "You started the High-Five reactor, now you have 2 option..\n";
+		std::cout << "You started the High-Five reactor of FragTrap, now you have 2 option..\n";
 		std::cout << "eighter you write no and dont give me a highfive or write yes and give me one.. \n";
 		std::cout << "if you give me one, everybody will be happy!\n";
 		std::cout << "But if you write no and dont give me one.. than nothing happens and life continues..\n";
@@ -79,3 +79,8 @@ void FragTrap::highFive(int i)
 		highFive(1);
 	}
 }
+
+// void FragTrap::bisey(void)
+// {
+// 	std::cout<<"Bir de Burdayim\n";	
+// }//sil
