@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 13:51:29 by sizgi             #+#    #+#             */
-/*   Updated: 2026/01/07 14:31:06 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/01/21 14:17:25 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int main(void )
 	{
 		Weapon club = Weapon("crude spiked club");
 		HumanB jim("Jim");
+		// jim.attack();
 		jim.setWeapon(club);
 		jim.attack();
 		club.setType("some other type of club");
@@ -33,7 +34,3 @@ int main(void )
 	}
 	return 0;
 }
-
-// If your implementation is correct, executing the following code will print an attack
-// with "crude spiked club" followed by a second attack with "some other type of club" for
-// both test cases:

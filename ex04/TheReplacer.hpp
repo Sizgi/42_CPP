@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 16:43:54 by sizgi             #+#    #+#             */
-/*   Updated: 2025/11/25 16:35:30 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/01/19 20:18:36 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class TheReplacer
 		std::string file_name;
 		int func2(std::ifstream &in_f, std::ofstream &out_f);
 		int empty_fcheck(std::ifstream &in_f);
-		size_t multi_rep(std::string line, std::ofstream &out_f);//to be able to replace multiple occurrence
+		size_t multi_rep(std::string line, std::ofstream &out_f);
 		void error_function(int code);
 	public:
 		TheReplacer(std::string s1, std::string s2, std::string given_fn);

@@ -6,7 +6,7 @@
 #    By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/10 16:46:47 by sizgi             #+#    #+#              #
-#    Updated: 2026/01/19 16:34:38 by sizgi            ###   ########.fr        #
+#    Updated: 2026/01/19 20:16:18 by sizgi            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,9 +18,9 @@ OBJ = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 
 DEPS = $(OBJ:.o=.d)
 
-NAME = HI_THIS_IS_BRAIN
+NAME = ex02
 
-CPPFLAGS = -Wall -Werror -Wextra -std=c++98 #-g -fsanitize=undefined -pedantic -Wno-newline-eof
+CXXFLAGS = -Wall -Werror -Wextra -std=c++98 -MMD -MP #-g -fsanitize=undefined -pedantic -Wno-newline-eof
 CXX = c++
 
 RM = rm -rf
@@ -28,10 +28,10 @@ RM = rm -rf
 all: $(NAME)
 
 $(NAME): $(OBJ)
-		$(CXX) $(OBJ) -o $(NAME) $(CPPFLAGS)
+		$(CXX) $(OBJ) -o $(NAME) $(CXXFLAGS)
 $(OBJ_DIR)/%.o: %.cpp
 		@mkdir -p $(dir $@)
-		$(CXX) $(CPPFLAGS) -c $< -o $@
+		$(CXX) $(CXXFLAGS) -c $< -o $@
 
 -include $(DEPS)
 

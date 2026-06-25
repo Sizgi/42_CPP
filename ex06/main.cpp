@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/11 14:10:49 by sizgi             #+#    #+#             */
-/*   Updated: 2026/01/21 14:01:57 by sizgi            ###   ########.fr       */
+/*   Created: 2025/11/25 17:20:24 by sizgi             #+#    #+#             */
+/*   Updated: 2026/01/21 14:44:47 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __HUMANB_HPP__
-#define __HUMANB_HPP__
+#include "Harl.hpp"
 
-#include "Weapon.hpp"
-
-class HumanB
+int main(int ac, char **av)
 {
-	public:
-		void attack();
-		void setWeapon(Weapon &weapon);
-		void setNameB(std::string n);
-		std::string getNameB(void);
-		HumanB(std::string n);
-		~HumanB();
-	private:	
-		std::string name;
-		Weapon *Bs_weapon;
-};
-
-#endif
+	if (ac != 2)
+	{
+		std::cout << "Wrong input" << std::endl;
+		return(1);
+	}
+	
+	Harl dude;
+	std::string str = std::string(av[1]);
+	dude.complain(str);
+	// dude.complain("DEBUG");
+	// dude.complain("INFO");
+	// dude.complain("WARNING");
+	// dude.complain("ERROR");
+	
+	return(0);
+}

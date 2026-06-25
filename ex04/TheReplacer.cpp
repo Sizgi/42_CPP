@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 16:43:52 by sizgi             #+#    #+#             */
-/*   Updated: 2026/01/19 18:20:51 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/01/21 15:17:15 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,20 @@ void TheReplacer::error_function(int code)
 {
 	switch (code)
 	{
-	case 0:
-		std::cout << "Error, first string cant be empty" << std::endl;
-		break;
-	case 1:
-		std::cout << "Error occured while opening the given file" << std::endl;
-		break;
-	case 2:
-		std::cout << "Error occured while opening the replace file" << std::endl;
-		break;
-	default:
-		break;
+		case 0:
+			std::cout << "Error, first string cant be empty" << std::endl;
+			break;
+		case 1:
+			std::cout << "Error occured while opening the given file" << std::endl;
+			break;
+		case 2:
+			std::cout << "Error occured while opening the replace file" << std::endl;
+			break;
+		case 3:
+			std::cout << "Error: search string cannot contain newline characters" << std::endl;
+			break;
+		default:
+			break;
 	}
 }
 
@@ -44,6 +47,11 @@ int TheReplacer::func1(void)
 	if(str1_s == 0)
 	{
 		error_function(0);
+		return (1);
+	}
+	if(string1.find('\n') != std::string::npos)
+	{
+		error_function(3);
 		return (1);
 	}
 	std::ifstream myfile(file_name.c_str());

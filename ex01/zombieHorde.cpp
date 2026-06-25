@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 16:33:58 by sizgi             #+#    #+#             */
-/*   Updated: 2026/01/19 16:18:57 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/01/21 13:37:53 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,7 @@ Zombie *zombieHorde( int N, std::string name )
 		return NULL;
 	}
 	Zombie *zombies = new Zombie[N];
-	if (zombies == NULL)
-    {
-        std::cerr << "Memory allocation failed" << std::endl;
-        return NULL;
-    }
+	
 	for(int count = 0; count < N; count++)
 		zombies[count].set_name(name);
 	return(zombies);
