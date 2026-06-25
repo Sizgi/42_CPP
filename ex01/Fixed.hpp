@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 17:31:01 by sizgi             #+#    #+#             */
-/*   Updated: 2026/01/19 19:03:09 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/01/20 10:00:00 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 class Fixed
 {
 	private:
-
 		int number;
 		static const int f_bits = 8;
 

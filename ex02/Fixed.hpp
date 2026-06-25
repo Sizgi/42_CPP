@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 17:31:01 by sizgi             #+#    #+#             */
-/*   Updated: 2025/12/03 17:14:02 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/01/22 18:22:19 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <cmath>
+# include <climits>
 
 class Fixed
 {
@@ -46,18 +47,14 @@ class Fixed
 		Fixed operator*(const Fixed &fist) const;
 		Fixed operator/(const Fixed &fist) const;
 		Fixed &operator++(void);
-		Fixed operator++(int dummy);
+		Fixed operator++(int);
 		Fixed &operator--(void);
-		Fixed operator--(int dummy);
+		Fixed operator--(int);
 		static Fixed &min(Fixed &first, Fixed &second);
 		static Fixed &max(Fixed &first, Fixed &second);
 		const static Fixed &max(const Fixed &first, const Fixed &second);
 		const static Fixed &min(const Fixed &first, const Fixed &second);
 };
-// static Fixed &Fixed::max(Fixed first, Fixed second)
-// {
-	
-// }
 
 std::ostream &operator<<(std::ostream &falan, const Fixed &filan);
 

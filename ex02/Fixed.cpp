@@ -6,16 +6,15 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 17:30:35 by sizgi             #+#    #+#             */
-/*   Updated: 2026/01/19 19:22:06 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/01/22 18:22:03 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-Fixed::Fixed(void)
+Fixed::Fixed(void) : number(0)
 {
 	std::cout << "default constructer was here" << std::endl;
-	number = 0; //actual value is number/(2^f_bits)
 }
 
 Fixed::~Fixed(void)
@@ -26,25 +25,24 @@ Fixed::~Fixed(void)
 Fixed::Fixed(const Fixed &copy_from_this)
 {
 	std::cout << "copy constructer was here" << std::endl;
-	*this = copy_from_this; //method to // copy all values from copy_this
-	//BSP: Fixed a(b) => this is a fixed object a with the infos of b;
+	*this = copy_from_this;
 }
 
 Fixed &Fixed::operator=(const Fixed &copy_from_this)
 {
 	std::cout << "Copy assignment operator was here" << std::endl;
-	if(this != &copy_from_this)// avoid self-assignment ?
+	if(this != &copy_from_this)
 		this->number = copy_from_this.number;
 	return *this;
 }
 
-void Fixed::setRawBits( int const raw )
+void Fixed::setRawBits(int const raw)
 {
 	number = raw;
 	std::cout << "set func used" << std::endl;
 }
 
-int Fixed::getRawBits( void ) const
+int Fixed::getRawBits(void) const
 {
 	std::cout << "get func used" << std::endl;
 	return number;
@@ -61,30 +59,26 @@ Fixed::Fixed(const int c_i)
 Fixed::Fixed(const float c_f)
 {
 	std::cout << "Float constructor was here" << std::endl;
-	if(c_f > 8388607.0 || c_f < -8388608.0)
+	if(c_f > 8388607.0)
+		std::cout << "numbers bigger than 8388607.0 can cause overflow, results can be unexpected" << std::endl;
+	else if(c_f < -8388608.0)
 		std::cout << "parameter caused an overflow, results can be unexpected" << std::endl;
 	number = roundf((c_f * 256));
 }
 float Fixed::toFloat(void) const
 {
 	return ((float)number)/256;
-	//convert the fixed-point value to a floating-point value.
 }
 
 int Fixed::toInt(void) const
 {
 	return number/256;
-	//convert the fixed-point value to an integer value.
 }
 
 std::ostream &operator<<(std::ostream &falan, const Fixed &filan)
 {
 	return (falan << filan.toFloat());
 }
-		// And add the following function to the Fixed class files:
-		// An overload of the insertion («) operator that inserts a floating-point representation
-		// of the fixed-point number into the output stream object passed as a parameter.
-
 // Operation functions always has "this" as the left operand and we are basicly adding the right operand(parameter)
 
 ////////////// The 6 comparison operators: >, <, >=, <=, ==, and != //////////////
@@ -118,17 +112,27 @@ bool Fixed::operator!=(const Fixed &other) const
 Fixed Fixed::operator+(const Fixed &second) const
 {
 	Fixed both;
+	long temp = static_cast<long>(this->number) + second.number;
+	if (temp > INT_MAX || temp < INT_MIN)
+		std::cout << "parameter caused an overflow, results can be unexpected" << std::endl;
 	both.setRawBits(this->number + second.number);
 	return(both);
 }
 Fixed Fixed::operator-(const Fixed &second) const
 {
+	long temp = static_cast<long>(this->number) - second.number;
+	if (temp > INT_MAX || temp < INT_MIN)
+		std::cout << "parameter caused an overflow, results can be unexpected" << std::endl;
 	Fixed both;
 	both.setRawBits(this->number - second.number);
 	return(both);
 }
 Fixed Fixed::operator*(const Fixed &second) const
 {
+	long temp = static_cast<long>(this->number) * second.number;
+	temp = temp/256;
+	if (temp > INT_MAX || temp < INT_MIN)
+		std::cout << "parameter caused an overflow, results can be unexpected" << std::endl;
 	Fixed both;
 	both.setRawBits((this->number * second.number) / 256);
 	return(both);
@@ -136,6 +140,10 @@ Fixed Fixed::operator*(const Fixed &second) const
 Fixed Fixed::operator/(const Fixed &second) const
 {
 	Fixed both;
+	long temp = static_cast<long>(this->number) / second.number;
+	temp = temp*256;
+	if (temp > INT_MAX || temp < INT_MIN)
+		std::cout << "parameter caused an overflow, results can be unexpected" << std::endl;
 	both.setRawBits((this->number * 256) / second.number);
 	return(both);
 }
@@ -144,30 +152,36 @@ Fixed Fixed::operator/(const Fixed &second) const
 ////////////// The 4 increment/decrement (pre-increment and post-increment, pre-decrement and post-decrement) operators //////////////
 Fixed &Fixed::operator++(void)
 {
+	if (this->number == INT_MAX)
+		std::cout << "parameter caused an overflow, results can be unexpected" << std::endl;
+
 	this->number += 1;
 	return(*this);
 }
 
-Fixed Fixed::operator++(int dummy)
+Fixed Fixed::operator++(int)
 {
 	Fixed clone;
-	
-	clone.setRawBits(dummy);
 	clone = *this;
+	if (this->number == INT_MAX)
+		std::cout << "parameter caused an overflow, results can be unexpected" << std::endl;
 	this->number += 1;
 	return(clone);
 }
 
 Fixed &Fixed::operator--(void)
 {
+	if (this->number == INT_MIN)
+		std::cout << "parameter caused an overflow, results can be unexpected" << std::endl;
 	this->number -= 1;
 	return(*this);
 }
 
-Fixed Fixed::operator--(int dummy)
+Fixed Fixed::operator--(int)
 {
 	Fixed clone;
-	clone.setRawBits(dummy);
+	if (this->number == INT_MIN)
+		std::cout << "parameter caused an overflow, results can be unexpected" << std::endl;
 	clone = *this;
 	this->number -= 1;
 	return(clone);
@@ -193,18 +207,3 @@ const Fixed &Fixed::min(const Fixed &first, const Fixed &second)
 {
 	return (first < second) ? first : second;
 }
-
-// A static member function min that takes two references to fixed-point numbers as
-// parameters, and returns a reference to the smallest one.
-// Fixed &Fixed::min(Fixed first, Fixed second)
-// {
-
-// }
-// A static member function min that takes two references to constant fixed-point
-// numbers as parameters, and returns a reference to the smallest one.
-
-// A static member function max that takes two references to fixed-point numbers as
-// parameters, and returns a reference to the greatest one.
-
-// A static member function max that takes two references to constant fixed-point
-// numbers as parameters, and returns a reference to the greatest one.

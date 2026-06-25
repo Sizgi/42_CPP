@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 17:31:14 by sizgi             #+#    #+#             */
-/*   Updated: 2026/01/19 19:13:18 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/01/22 18:10:31 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int main(void)
 	Fixed const c( 42.42f );
 	Fixed const d( b );
 	
-	a = Fixed( 1234.4321f );
+	a = Fixed( 8388607.7f );
 	
 	Fixed x((INT_MAX-10));
 	std::cout << "x is " << x << std::endl;
