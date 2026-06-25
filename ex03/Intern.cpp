@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 13:51:07 by sizgi             #+#    #+#             */
-/*   Updated: 2026/02/18 14:47:47 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/03/10 11:44:39 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,26 +43,14 @@ AForm *Intern::makeForm(std::string requestedForm, std::string givenTarget)
 	AForm *(Intern::*formFuncs[3])(std::string&) = {&Intern::makeShrub, &Intern::makeRobo, &Intern::makePresident};
 	for(int i = 0; i < 3; i++)
 	{
-		if(forms[i] == requestedForm)
+		switch (static_cast<int>((forms[i] == requestedForm))) {
+		case true:
 			return((this->*formFuncs[i])(givenTarget));
+		default:
+			break;
+		}
+		// if(forms[i] == requestedForm)
+		// 	return((this->*formFuncs[i])(givenTarget));
 	}
 	throw std::runtime_error("There is no such Form!\n");
 }
-
-
-// However, the intern has one key ability: the makeForm() function. This function
-// takes two strings as parameters: the first one represents the name of a form, and the
-// second one represents the target of the form. It returns a pointer to a AForm object
-// (corresponding to the form name passed as a parameter), with its target initialized to
-// the second parameter.
-// It should print something like:
-// Intern creates <form>
-// If the provided form name does not exist, print an explicit error message.
-// 14C++ - Module 05
-// Repetition and Exceptions
-// You must avoid unreadable and messy solutions, such as using an excessive if/el-
-// seif/else structure. This kind of approach will not be accepted during the evaluation
-// process. You’re not in the Piscine (pool) anymore. As usual, you must test everything
-// to ensure it works as expected.
-// For example, the following code creates a RobotomyRequestForm targeted at
-// "Bender":

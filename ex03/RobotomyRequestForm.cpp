@@ -25,7 +25,7 @@ RobotomyRequestForm::~RobotomyRequestForm(void) {
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &copyFromThis):
- AForm(copyFromThis.AForm::getName(), copyFromThis.AForm::getGradeToSign(), copyFromThis.AForm::getGradeToExecute()), target(copyFromThis.target) {
+ AForm(copyFromThis), target(copyFromThis.target) {
 	srand(time(NULL));
 }
 

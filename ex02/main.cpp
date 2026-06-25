@@ -14,11 +14,9 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
-#include <cstdlib>
-#include <ctime>
 
 int main() {
-    std::cout << "=== Test 1: Create ShrubberyCreationForm ===" << std::endl;
+    std::cout << " Test 1: creating ShrubberyCreationForm " << std::endl;
     try {
         ShrubberyCreationForm form1("home");
         std::cout << form1 << std::endl;
@@ -27,7 +25,7 @@ int main() {
         std::cout << "Exception: " << e.what() << std::endl;
     }
 
-    std::cout << "\n=== Test 2: Bureaucrat can't execute unsigned form ===" << std::endl;
+    std::cout << "\n Test 2: unsigned form execution check " << std::endl;
     try {
         ShrubberyCreationForm form("garden");
         Bureaucrat bob("Bob", 130);
@@ -42,7 +40,7 @@ int main() {
         std::cout << "Exception: " << e.what() << std::endl;
     }
 
-    std::cout << "\n=== Test 3: Sign and execute successfully ===" << std::endl;
+    std::cout << "\n Test 3: Signing and executing " << std::endl;
     try {
         ShrubberyCreationForm form("park");
         Bureaucrat alice("Alice", 100);  // High enough to sign (needs 145)
@@ -65,7 +63,7 @@ int main() {
         std::cout << "Exception: " << e.what() << std::endl;
     }
 
-    std::cout << "\n=== Test 4: Grade too low to sign ===" << std::endl;
+    std::cout << "\n Test 4: Grade too low to sign " << std::endl;
     try {
         ShrubberyCreationForm form("forest");
         Bureaucrat lowGrade("Intern", 150);  // Too low to sign (needs 145)
@@ -79,7 +77,7 @@ int main() {
         std::cout << "Exception: " << e.what() << std::endl;
     }
 
-    std::cout << "\n=== Test 5: Grade too low to execute ===" << std::endl;
+    std::cout << "\n Test 5: Grade too low to execute " << std::endl;
     try {
         ShrubberyCreationForm form("jungle");
         Bureaucrat signer("Manager", 140);    // Can sign (needs 145)
@@ -95,7 +93,7 @@ int main() {
         std::cout << "Exception: " << e.what() << std::endl;
     }
 
-    std::cout << "\n=== Test 6: Edge case - exact grades ===" << std::endl;
+    std::cout << "\n Test 6: Edge case - exact grades " << std::endl;
     try {
         ShrubberyCreationForm form("backyard");
         Bureaucrat exactSigner("John", 145);   // Exactly 145
@@ -113,7 +111,7 @@ int main() {
         std::cout << "Exception: " << e.what() << std::endl;
     }
 
-    std::cout << "\n=== Test 7: Multiple executions of same form ===" << std::endl;
+    std::cout << "\n Test 7: Multiple executions of same form " << std::endl;
     try {
         ShrubberyCreationForm form("plaza");
         Bureaucrat boss("Boss", 1);
@@ -132,7 +130,7 @@ int main() {
         std::cout << "Exception: " << e.what() << std::endl;
     }
 
-    std::cout << "\n=== Test 8: Copy constructor and assignment ===" << std::endl;
+    std::cout << "\n Test 8: Copy constructor and assignment " << std::endl;
     try {
         ShrubberyCreationForm form1("original");
         Bureaucrat signer("Signer", 100);
@@ -155,9 +153,7 @@ int main() {
         std::cout << "Exception: " << e.what() << std::endl;
     }
 
-	std::cout <<"\n\n\nROBOTOMYREQUESTFORM\n";
-
-	std::cout << "=== Testing RobotomyRequestForm ===\n\n";
+	std::cout << "  Testing RobotomyRequestForm  \n\n";
     
     try {
         Bureaucrat bob("Bob", 40);
@@ -197,7 +193,7 @@ int main() {
         std::cout << "Exception: " << e.what() << "\n";
     }
     
-	std::cout << "\n\n=== Testing PresidentialPardonForm ===\n\n";
+	std::cout << "\n\n  Testing PresidentialPardonForm  \n\n";
     
     try {
         Bureaucrat president("President", 1);
@@ -211,7 +207,8 @@ int main() {
         std::cout << "--- Intern (grade 50) tries to sign ---\n";
         try {
             intern.signAForm(pardonForm);
-        } catch (std::exception &e) {
+        }
+		catch (std::exception &e) {
             std::cout << "Exception: " << e.what() << "\n";
         }
         

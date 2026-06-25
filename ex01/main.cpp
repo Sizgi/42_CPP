@@ -11,35 +11,10 @@
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-
-// int main(void) {
-// 	try {
-// 		Bureaucrat cat;
-// 		std::cout << cat << std::endl;
-// 		Bureaucrat fox("Foxy", 150);
-// 		std::cout << fox << std::endl;
-// 		Bureaucrat *dog = new Bureaucrat("Chucky", 1);
-// 		std::cout << *dog << std::endl;
-// 		Bureaucrat *bear = new Bureaucrat("Winnie", 1256987987);
-// 		std::cout << *bear << std::endl;
-// 		delete dog;
-// 	}
-// 	catch(Bureaucrat::GradeTooHighException &error) {
-
-// 		std::cout << error.what() << std::endl;
-// 	}
-// 	catch(Bureaucrat::GradeTooLowException &error) {
-// 		std::cout << "Exception: " << error.what();
-// 	}
-
-// 	return 0;
-// }
-
-#include "Bureaucrat.hpp"
 #include "Form.hpp"
 
 int main() {
-    std::cout << "=== Test 1: Create valid forms ===" << std::endl;
+    std::cout << "  Test 1: Create valid forms  " << std::endl;
     try {
         Form form1("Tax Form", 50, 25);
         std::cout << form1 << std::endl;
@@ -51,7 +26,7 @@ int main() {
         std::cout << "Exception: " << e.what() << std::endl;
     }
 
-    std::cout << "\n=== Test 2: Invalid form grades ===" << std::endl;
+    std::cout << "\n Test 2: Invalid form grades " << std::endl;
     try {
         Form badForm1("Bad Form", 0, 50);  // Grade too high
     }
@@ -66,7 +41,7 @@ int main() {
         std::cout << "Exception: " << e.what();
     }
 
-    std::cout << "\n=== Test 3: Bureaucrat signs form successfully ===" << std::endl;
+    std::cout << "\n  Test 3: Bureaucrat signs form successfully  " << std::endl;
     try {
         Bureaucrat alice("Alice", 30);
         Form form("Contract", 50, 25);
@@ -83,7 +58,7 @@ int main() {
         std::cout << "Exception: " << e.what() << std::endl;
     }
 
-    std::cout << "\n=== Test 4: Bureaucrat grade too low to sign ===" << std::endl;
+    std::cout << "\n  Test 4: Bureaucrat grade too low to sign  " << std::endl;
     try {
         Bureaucrat bob("Bob", 100);
         Form form("Top Secret", 50, 25);
@@ -100,7 +75,7 @@ int main() {
         std::cout << "Exception: " << e.what() << std::endl;
     }
 
-    std::cout << "\n=== Test 5: Multiple bureaucrats, same form ===" << std::endl;
+    std::cout << "\n  Test 5: Multiple bureaucrats, same form  " << std::endl;
     try {
         Form importantDoc("Important Document", 75, 50);
         Bureaucrat lowLevel("Intern", 120);
@@ -117,35 +92,7 @@ int main() {
         std::cout << "Exception: " << e.what() << std::endl;
     }
 
-	// std::cout << "\n=== Test 6: Edge cases - grade 1 and 150 ===" << std::endl;
-	// try {
-    // std::cout << "Creating easyForm..." << std::endl;
-    // Form easyForm("Easy Form", 150, 150);
-    
-    // std::cout << "Creating hardForm..." << std::endl;
-    // Form hardForm("Hard Form", 1, 1);
-    
-    // std::cout << "Creating newbie..." << std::endl;
-    // Bureaucrat newbie("Newbie", 150);
-    
-    // std::cout << "Creating master..." << std::endl;
-    // Bureaucrat master("Master", 1);
-    
-    // std::cout << "Newbie signs easy..." << std::endl;
-    // newbie.signForm(easyForm);
-    
-    // std::cout << "Newbie tries hard..." << std::endl;
-    // newbie.signForm(hardForm);
-    
-    // std::cout << "Master signs hard..." << std::endl;
-    // master.signForm(hardForm);
-    
-    // std::cout << "Test 6 complete!" << std::endl;
-	// }
-	// catch (std::exception& e) {
-  	//   std::cout << "Exception: " << e.what() << std::endl;
-	// }
-    std::cout << "\n=== Test 6: Edge cases - grade 1 and 150 ===" << std::endl;
+    std::cout << "\n  Test 6: Edge cases - grade 1 and 150  " << std::endl;
     try {
         Form easyForm("Easy Form", 150, 150);
         Form hardForm("Hard Form", 1, 1);
@@ -166,7 +113,7 @@ int main() {
         std::cout << "Exception: " << e.what() << std::endl;
     }
 
-    std::cout << "\n=== Test 7: Form with equal sign/execute grades ===" << std::endl;
+    std::cout << "\n  Test 7: Form with equal sign/execute grades  " << std::endl;
     try {
         Form balanced("Balanced Form", 75, 75);
         Bureaucrat charlie("Charlie", 75);

@@ -20,8 +20,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string sName): AForm("Shrubber
 ShrubberyCreationForm::~ShrubberyCreationForm(void) {}
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &copyFromThis):
- AForm(copyFromThis.AForm::getName(), copyFromThis.AForm::getGradeToSign(), 
- copyFromThis.AForm::getGradeToExecute()), target(copyFromThis.target) {}
+ AForm(copyFromThis), target(copyFromThis.target) {}
 
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &copyFromThis) {
 	if(this != &copyFromThis)

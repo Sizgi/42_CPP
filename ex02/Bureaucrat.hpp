@@ -45,11 +45,11 @@ class Bureaucrat {
 
 		Bureaucrat(void);
 		~Bureaucrat();
-		Bureaucrat(std::string givenName, unsigned int givenGrade);
+		Bureaucrat(std::string givenName, int givenGrade);
 		Bureaucrat(const Bureaucrat &copyFromThis);
 		Bureaucrat &operator=(const Bureaucrat &copyFromThis);
 		std::string getName(void) const;
-		void setGrade(unsigned int);
+		void setGrade(int);
 		unsigned int getGrade(void) const;
 		void incrementer();
 		void decrementer();

@@ -23,7 +23,7 @@ PresidentialPardonForm::~PresidentialPardonForm(void) {
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &copyFromThis):
- AForm(copyFromThis.AForm::getName(), copyFromThis.AForm::getGradeToSign(), copyFromThis.AForm::getGradeToExecute()), target(copyFromThis.target) {
+ AForm(copyFromThis), target(copyFromThis.target) {
 }
 
 PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &copyFromThis) {
