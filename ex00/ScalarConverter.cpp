@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 12:20:22 by sizgi             #+#    #+#             */
-/*   Updated: 2026/02/18 13:26:03 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/04/18 17:01:31 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,13 @@ ScalarConverter::ScalarConverter() {
 ScalarConverter::~ScalarConverter(void) {
 }
 
+ScalarConverter::ScalarConverter(const ScalarConverter &) {
+}
+
+ScalarConverter	&ScalarConverter::operator=(const ScalarConverter &) {
+	return *this;
+}
+
 ScalarConverter::InputType 	ScalarConverter::pseudoCheck(std::string str) {	
 	if(str == "nan" || str == "NaN" || str == "+inf" || str == "-inf" || str == "inf")
 		return PSEUDOD;
@@ -29,8 +36,8 @@ ScalarConverter::InputType 	ScalarConverter::pseudoCheck(std::string str) {
 
 ScalarConverter::InputType 	ScalarConverter::charCheck(std::string str) {
 	if(str.length() == 1) {
-		if(std::isprint(str[0])) {
-			if(isdigit(str[0]))
+		if(std::isprint(static_cast<unsigned char>(str[0]))) {
+			if(std::isdigit(static_cast<unsigned char>(str[0])))
 				return(INT);
 			else
 				return (CHAR);
@@ -40,7 +47,7 @@ ScalarConverter::InputType 	ScalarConverter::charCheck(std::string str) {
 	}
 	if(str.length() == 3) {
 		if(str[0] == '\'' && str[2] == '\'') {
-			if(std::isprint(str[0]))
+			if(std::isprint(static_cast<unsigned char>(str[0])))
 				return CHAR;
 			else
 				return INVALID;
@@ -68,7 +75,7 @@ void 	ScalarConverter::floatConverter(std::string str) {
 	if(type == FLOAT) {
 		if(floatMu < 0 || floatMu > std::numeric_limits<char>::max())
 			std::cout << "Char: impossible" << std::endl;
-		else if(!(std::isprint(floatMu)))
+		else if(!(std::isprint(static_cast<unsigned char>(floatMu))))
 			std::cout << "Char: Non-Displayable" << std::endl;
 		else
 			std::cout << "Char: "<<static_cast<char>(floatMu) << std::endl;
@@ -101,7 +108,7 @@ void 	ScalarConverter::doubleConverter(std::string str) {
 	if(type == DOUBLE) {
 		if(doubleMi < 0 || doubleMi > std::numeric_limits<char>::max())
 			std::cout << "Char: impossible" << std::endl;
-		else if(!(std::isprint(doubleMi)))
+		else if(!(std::isprint(static_cast<unsigned char>(doubleMi))))
 			std::cout << "Char: Non-Displayable" << std::endl;
 		else
 			std::cout << "Char: "<<static_cast<char>(doubleMi) << std::endl;
@@ -135,7 +142,7 @@ void	ScalarConverter::intConverter(std::string str) {
 		std::cout << "Given Value: Integer" << std::endl;
 		if(intMi < 0 || intMi > std::numeric_limits<char>::max())
 			std::cout << "Char: impossible" << std::endl;
-		else if(!(std::isprint(intMi)))
+		else if(!(std::isprint(static_cast<unsigned char>(intMi))))
 			std::cout << "Char: Non-Displayable" << std::endl;
 		else
 			std::cout << "Char: "<<static_cast<char>(intMi) << std::endl;

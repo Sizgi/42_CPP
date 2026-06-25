@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 12:20:15 by sizgi             #+#    #+#             */
-/*   Updated: 2026/02/18 13:27:20 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/04/18 16:50:21 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,5 @@ class ScalarConverter {
 		static void			doubleConverter(std::string str);
 		static void			intConverter(std::string str);
 		static void			charConverter(std::string str);
-		static InputType type;
+		static InputType 	type;
 };

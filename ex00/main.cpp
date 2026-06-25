@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 12:03:32 by sizgi             #+#    #+#             */
-/*   Updated: 2026/02/15 16:51:39 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/04/18 17:42:50 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,10 @@ int main(int argc, char **argv) {
 	std::cout << "25-----------------------" << std::endl;
 	ScalarConverter::convert("-inff");
 	std::cout << "26-----------------------" << std::endl;
+	ScalarConverter::convert("256");
+	std::cout << "27------------------------" << std::endl;
+	ScalarConverter::convert("NANF");
+	std::cout << "20-----------------------" << std::endl;
+
 	return 0;
 }

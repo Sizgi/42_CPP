@@ -6,15 +6,11 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 14:13:04 by sizgi             #+#    #+#             */
-/*   Updated: 2026/02/17 16:40:33 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/04/18 16:14:48 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-
-// struct Data {
-// 		std::string name = "Laurence...Watkins";
-// };
 
 class Data {
 	public:

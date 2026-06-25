@@ -6,12 +6,12 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 17:14:41 by sizgi             #+#    #+#             */
-/*   Updated: 2026/02/17 18:40:01 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/04/18 17:54:12 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include "Base.hpp"
 
-class B: public Base {	
+class B: public Base {
 };
