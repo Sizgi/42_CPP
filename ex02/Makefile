@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-SRC = main.cpp
+SRC = main.cpp 
 
 OBJ_DIR = obj
 
@@ -20,7 +20,7 @@ DEPS = $(OBJ:.o=.d)
 
 NAME = ex02
 
-CXXFLAGS = -Wall -Werror -Wextra -std=c++98 -MMD -MP -g # -fsanitize=undefined -pedantic -Wno-newline-eof
+CXXFLAGS = -Wall -Werror -Wextra -std=c++98 -MMD -MP #-g -fsanitize=undefined -pedantic -Wno-newline-eof
 CXX = c++
 
 RM = rm -rf

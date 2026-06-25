@@ -6,16 +6,12 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 14:55:46 by sizgi             #+#    #+#             */
-/*   Updated: 2026/03/18 15:27:24 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/06/02 16:53:23 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "MutantStack.hpp"
-
-// typename MutantStack<T>::iterator
-// typename MutantStack<T>::const_iterator
-
 
 
 template<typename T>
@@ -55,9 +51,18 @@ template<typename T>
 typename MutantStack<T>::const_iterator MutantStack<T>::end() const{
 	return this->c.end();
 }
-// void MutantStack<T>::iterators() {
-// 	MutantStack<T> temp;
-// 	temp.begin()
-// }
 
-//stack.top() => last
+template<typename T>
+T &MutantStack<T>::operator[](size_t givenIndex) {
+	if(givenIndex < 0 || givenIndex >= this->c.size())
+		throw std::runtime_error("Index is out of range!");
+	return this->c[givenIndex];
+}
+
+template<typename T>
+const T &MutantStack<T>::operator[](size_t givenIndex) const {
+	if(givenIndex < 0 || givenIndex >= this->c.size())
+		throw std::runtime_error("Index is out of range!");
+	return this->c[givenIndex];
+}
+

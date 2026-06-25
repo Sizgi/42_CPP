@@ -6,12 +6,11 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 16:31:32 by sizgi             #+#    #+#             */
-/*   Updated: 2026/03/13 14:22:18 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/06/02 16:48:34 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
-#include <algorithm>
 
 Span::Span() {
 	memberV.reserve(10);
@@ -75,7 +74,7 @@ void Span::addMultipleNumber(unsigned int countOfNumbers) {
 unsigned int Span::shortestSpan() {
 	unsigned int temp = 0;
 	if(memberV.empty())
-		throw std::runtime_error("Container is empyt!");
+		throw std::runtime_error("Container is empty!");
 	if(memberV.size() == 1)
 		throw std::runtime_error("Container has only one element!");
 
@@ -90,7 +89,7 @@ unsigned int Span::shortestSpan() {
 
 unsigned int Span::longestSpan() {
 	if(memberV.empty())
-		throw std::runtime_error("Container is empyt!");
+		throw std::runtime_error("Container is empty!");
 	if(memberV.size() == 1)
 		throw std::runtime_error("Container has only one element!");
 

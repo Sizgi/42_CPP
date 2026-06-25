@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/11 12:27:04 by sizgi             #+#    #+#             */
-/*   Updated: 2026/03/13 14:48:09 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/06/02 16:49:41 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 int main()
 {
 	{
-		std::cout << "--------TEST 1--------" << std::endl;
+		std::cout << "TEST 1" << std::endl;
 		Span sp = Span(20);
 		try {
-			sp.addMultipleNumber(25);
+			sp.addMultipleNumber(15);
 		}
 		catch(std::exception &e){
 	        std::cout << "Exception: " << e.what() << std::endl;
@@ -32,6 +32,7 @@ int main()
 		}
 		try {
 			std::cout << sp.shortestSpan() << std::endl;
+			std::cout << "1" << std::endl;
 		}
 		catch(std::exception &e){
 			std::cout << "Exception: " << e.what() << std::endl;
@@ -39,6 +40,7 @@ int main()
 		
 		try {
 			std::cout << sp.longestSpan() << std::endl;
+			std::cout << "2" << std::endl;
 		}
 		catch(std::exception &e){
 			std::cout << "Exception: " << e.what() << std::endl;
@@ -88,6 +90,7 @@ int main()
 		
 		try {
 			std::cout << sp.shortestSpan() << std::endl;
+			std::cout << "3" << std::endl;
 		}
 		catch(std::exception &e){
 			std::cout << "Exception: " << e.what() << std::endl;
@@ -95,6 +98,7 @@ int main()
 		
 		try {
 			std::cout << sp.longestSpan() << std::endl;
+			std::cout << "4" << std::endl;
 		}
 		catch(std::exception &e){
 			std::cout << "Exception: " << e.what() << std::endl;
@@ -102,22 +106,31 @@ int main()
 	}
 	
 	{
-		std::cout << "--------TEST 2--------" << std::endl;
-		Span sp = Span(12);
+		std::cout << "TEST 2" << std::endl;
+		Span sp = Span(10500);
 		std::vector<int> sp1;
 		sp1.reserve(10000);
 		for(int i = 0; i != 10000; ++i) {
 			sp1.push_back(sp1.size());
 		}
-		// sp.addMultipleNumber(5);
-		sp.addFromContainer(sp1.begin(), sp1.end());
+		try{
+			sp.addFromContainer(sp1.begin(), sp1.end());
+		}
+		catch(std::exception &e) {
+			std::cout << "Exception: " << e.what() << std::endl;
+		}
+		try{
 		sp.addNumber(6);
 		sp.addNumber(3);
 		sp.addNumber(17);
 		sp.addNumber(9);
 		sp.addNumber(11);
 		std::cout << sp.shortestSpan() << std::endl;
-		std::cout << sp.longestSpan() << std::endl;	
+		std::cout << sp.longestSpan() << std::endl;
+		}
+		catch(std::exception &e) {
+			std::cout << "Exception: " << e.what() << std::endl;
+		}
 	}
 	
 	return 0;

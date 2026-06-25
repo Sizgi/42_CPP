@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 14:55:46 by sizgi             #+#    #+#             */
-/*   Updated: 2026/03/18 14:46:38 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/06/02 16:52:21 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 #include <stack>
 #include <algorithm>
 #include <iostream>
-#include <vector>
 
 
 template<typename T>
@@ -34,6 +33,9 @@ class MutantStack: public std::stack<T> {
 		~MutantStack();
 		MutantStack(const MutantStack<T> &copyThis);
 		MutantStack &operator=(const MutantStack<T> &copyThis);
+
+		T &operator[](size_t givenIndex);
+		const T &operator[](size_t givenIndex) const;
 	private:
 };
 
