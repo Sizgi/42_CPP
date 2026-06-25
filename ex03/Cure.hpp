@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/26 15:55:28 by sizgi             #+#    #+#             */
-/*   Updated: 2026/01/02 19:50:46 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/01/25 16:05:56 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ class Cure : public AMateria
 		Cure(void);
 		~Cure();
 		Cure(std::string const &type);
-		//const std::string &getType() const; //Returns the materia type
 		Cure(const Cure &copy_from_this);
 		Cure &operator = (const Cure &copy_from_this);
 		Cure *clone() const;

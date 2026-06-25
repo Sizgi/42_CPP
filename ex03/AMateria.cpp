@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/26 14:55:13 by sizgi             #+#    #+#             */
-/*   Updated: 2026/01/02 19:18:23 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/01/25 16:03:05 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,24 @@
 AMateria::AMateria(void)
 {
 	mat_type = "a material";
-	std::cout << "\033[1;33mAMateria\033[0m default constructer \033[1;34mconstructed\033[0m a AMateria.\n";
+	std::cout << "\033[1;33mAMateria\033[0m default constructor \033[1;34mconstructed\033[0m a AMateria.\n";
 }
 
 AMateria::~AMateria()
 {
-	std::cout << "\033[1;33mAMateria\033[0m default constructer \033[1;31mdestructed\033[0m a AMateria.\n";
+	std::cout << "\033[1;33mAMateria\033[0m default constructor \033[1;31mdestructed\033[0m a AMateria.\n";
 }
 
 AMateria::AMateria(std::string const &type)
 {
 	mat_type = type;
-	std::cout << "\033[1;33mAMateria\033[0m parameterized constructer \033[1;34mconstructed\033[0m a AMateria.\n";
+	std::cout << "\033[1;33mAMateria\033[0m parameterized constructor \033[1;34mconstructed\033[0m a AMateria.\n";
 }
 
 AMateria::AMateria(const AMateria &copy_from_this)
 {
 	*this = copy_from_this;
-	std::cout << "\033[1;33mAMateria\033[0m copy constructer \033[1;34mconstructed\033[0m a AMateria.\n";
+	std::cout << "\033[1;33mAMateria\033[0m copy constructor \033[1;34mconstructed\033[0m a AMateria.\n";
 }
 
 AMateria &AMateria::operator = (const AMateria &copy_from_this)
@@ -44,12 +44,13 @@ AMateria &AMateria::operator = (const AMateria &copy_from_this)
 	return *this;
 }
 
-std::string const &AMateria::getType() const //Returns the materia type
+std::string const &AMateria::getType() const
 {
 	return mat_type;
 }
 
 //  virtual AMateria* clone() const = 0;
+
 void AMateria::use(ICharacter &target)
 {
 	std::cout << "sana bok attim " << target.getName() << "\n";

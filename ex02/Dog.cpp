@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 15:38:36 by sizgi             #+#    #+#             */
-/*   Updated: 2025/12/26 14:46:31 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/01/25 15:52:11 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,19 @@ Dog::Dog(void) : Animal()
 {
 	type = "dog";
 	dogBrain = new Brain();
-	std::cout << "Dog default constructer constructed a dog.\n";
+	std::cout << "Dog default constructor constructed a dog.\n";
 }
 
 Dog::~Dog()
 {
 	delete dogBrain;
-	std::cout << "Dog destructer destructed a dog.\n";
+	std::cout << "Dog destructor destructed a dog.\n";
 }
 
 Dog::Dog(const Dog &copy_from_this) : Animal(copy_from_this)
 {
-	std::cout << "Dog copy constructer constructed a dog.\n";
+	this->dogBrain = new Brain(*copy_from_this.dogBrain);
+	std::cout << "Dog copy constructor constructed a dog.\n";
 }
 
 Dog &Dog::operator=(const Dog &copy_from_this)
@@ -47,7 +48,7 @@ void Dog::makeSound(void) const
 	std::cout << "HAV HAV\n";
 }
 
-std::string Dog::getIdea(int index) const
+std::string &Dog::getIdea(int index) const
 {
 	if(index > 99 || index < 0)
 	{
@@ -57,7 +58,7 @@ std::string Dog::getIdea(int index) const
 	return(dogBrain->ideas[index]);
 }
 
-void Dog::setIdea(int index, std::string str_to_set)
+void Dog::setIdea(int index, std::string &str_to_set)
 {
 	if(index > 99 || index < 0)
 		std::cout << "your index is shieet. (" << index <<") so nothing will happen.\n";

@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 20:32:31 by sizgi             #+#    #+#             */
-/*   Updated: 2025/12/30 15:56:25 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/01/24 17:37:12 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int main()
 	const Animal* i = new Cat();
 	std::cout << j->getType() << " " << std::endl;
 	std::cout << i->getType() << " " << std::endl;
-	i->makeSound(); //will output the cat sound!
+	i->makeSound();
 	j->makeSound();
 	meta->makeSound();
 
@@ -29,24 +29,15 @@ int main()
 	delete j;
 	delete i;
 	std::cout << "\n\n\n";
-	const WrongAnimal *wong = new WrongAnimal();
-	const WrongAnimal *wang = new WrongCat();
-	std::cout << wong->getType() << std::endl;
-	std::cout << wang->getType() << std::endl;
-	wong->makeSound();
-	wang->makeSound();
+	const WrongAnimal *wrong = new WrongAnimal();
+	const WrongAnimal *wrang = new WrongCat();
+	std::cout << wrong->getType() << std::endl;
+	std::cout << wrang->getType() << std::endl;
+	wrong->makeSound();
+	wrang->makeSound();
 
-	delete wong;
-	delete wang;
+	delete wrong;
+	delete wrang;
 	
-	// const Animal *wing = new Cat();
-	// const Animal *wung = new Cat();
-	// const Animal *temp;
-	// temp = wing;
-	// wing = wung;
-	// delete wing;
-	// delete wung;
-	// delete temp;
-
 	return 0;
 }

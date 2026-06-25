@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 18:33:52 by sizgi             #+#    #+#             */
-/*   Updated: 2025/12/19 16:43:28 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/01/24 17:56:49 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ class WrongAnimal
 		WrongAnimal(const WrongAnimal &copy_from_this);
 		WrongAnimal &operator=(const WrongAnimal &copy_from_this);
 		void makeSound(void) const;
-		void setType(std::string given_type);
 		std::string getType(void) const;
 	protected:
 		std::string type;

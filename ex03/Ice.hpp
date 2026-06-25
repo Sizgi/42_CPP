@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/26 15:55:17 by sizgi             #+#    #+#             */
-/*   Updated: 2026/01/02 19:51:41 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/01/25 16:07:45 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ class Ice : public AMateria
 		Ice(void);
 		~Ice();
 		Ice(std::string const &type);
-		// const std::string &getType() const; //Returns the materia type
 		Ice(const Ice &copy_from_this);
 		Ice &operator = (const Ice &copy_from_this);
 		Ice *clone() const;

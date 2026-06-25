@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/26 18:04:12 by sizgi             #+#    #+#             */
-/*   Updated: 2026/01/02 20:06:17 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/01/25 16:34:59 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ Character::~Character()
 		if(inventory[i])
 			delete inventory[i];
 	}
-	std::cout << "Character destructer \033[1;31mdestructed\033[0m a Character\n";
+	std::cout << "Character destructor \033[1;31mdestructed\033[0m a Character\n";
 }
 
 Character::Character(const Character &copy_from_this)
@@ -71,13 +71,16 @@ std::string const &Character::getName() const
 
 void Character::equip(AMateria *m)
 {
-	for(int i = 0; i < 4; i++)
+	if(m)
 	{
-		if(!inventory[i])
+		for(int i = 0; i < 4; i++)
 		{
-			inventory[i] = m;
-			std::cout << m->getType() << " equiped in the inventory slot " << i << "\n";
-			return;
+			if(!inventory[i])
+			{
+				inventory[i] = m;
+				std::cout << m->getType() << " equipped in the inventory slot " << i << "\n";
+				return;
+			}
 		}
 	}
 	std::cout<< "NOTHING HAPPENED\n";
@@ -89,7 +92,7 @@ void Character::unequip(int idx)
 	{
 		if(inventory[idx])
 		{
-			std::cout << inventory[idx]->getType() << " unequiped from the inventory slot " << idx << "\n";
+			std::cout << inventory[idx]->getType() << " unequipped from the inventory slot " << idx << "\n";
 			inventory[idx] = NULL;
 			return;
 		}

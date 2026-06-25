@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 15:38:36 by sizgi             #+#    #+#             */
-/*   Updated: 2025/12/18 18:28:20 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/01/24 17:44:07 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,17 @@
 Dog::Dog(void) : Animal()
 {
 	type = "dog";
-	std::cout << "Dog default constructer constructed a dog.\n";
+	std::cout << "Dog default constructor constructed a dog.\n";
 }
 
 Dog::~Dog()
 {
-	std::cout << "Dog destructer destructed a dog.\n";
+	std::cout << "Dog destructor destructed a dog.\n";
 }
 
 Dog::Dog(const Dog &copy_from_this) : Animal(copy_from_this)
 {
-	std::cout << "Dog copy constructer constructed a dog.\n";
+	std::cout << "Dog copy constructor constructed a dog.\n";
 }
 
 Dog &Dog::operator=(const Dog &copy_from_this)
@@ -40,12 +40,3 @@ void Dog::makeSound(void) const
 {
 	std::cout << "HAV HAV\n";
 }
-// std::string Dog::getType(void)
-// {
-// 	return type;
-// }
-
-// void Dog::setType(std::string given_type)
-// {
-// 	type = given_type;
-// }

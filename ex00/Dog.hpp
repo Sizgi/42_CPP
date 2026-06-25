@@ -6,7 +6,7 @@
 /*   By: sizgi <sizgi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 20:59:05 by sizgi             #+#    #+#             */
-/*   Updated: 2025/12/18 19:05:18 by sizgi            ###   ########.fr       */
+/*   Updated: 2026/01/24 17:35:57 by sizgi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@ class Dog : public Animal
 		~Dog();
 		Dog(const Dog &copy_from_this);
 		Dog &operator=(const Dog &copy_from_this);
-		// std::string getType(void) const;
-		// void setType(std::string given_type);
 		void makeSound(void) const;
 	private:
 };
