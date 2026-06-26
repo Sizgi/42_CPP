@@ -1,0 +1,18 @@
+Hello world! This is a test file.
+world appears multiple times in this world.
+Test WORLD with different cases.
+world
+worldworldworld
+This line has world at the end: world
+world starts this line
+Some text without the target word.
+Empty lines below:
+
+More text after empty line.
+Special characters: world! world? world. world, world;
+Numbers: world123 123world 123world123
+Tabs	world	and	spaces world test
+Very long line with world repeated many times: world world world world world world world world world world
+Single character line: a
+world
+THE END world Very long line with world repeated with world repeatedwith world repeatedwith world repeatedwith world repeatedwith world repeated
